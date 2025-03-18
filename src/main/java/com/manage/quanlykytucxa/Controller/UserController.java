@@ -1,4 +1,4 @@
-package com.manage.quanlykytucxa.controller.user;
+package com.manage.quanlykytucxa.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,8 +21,8 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping
-    public ResponseEntity<String> createUser(@Valid @RequestBody User user) {
+    @PostMapping("/register")
+    public ResponseEntity<User> createUser(@Valid @RequestBody User user) {
 
         return ResponseEntity.ok(userService.create(user));
     }

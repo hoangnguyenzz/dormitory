@@ -10,6 +10,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -40,4 +42,15 @@ public class User {
     @JoinColumn(name = "role_id")
     private Role role;
 
+    @PrePersist
+    public void handleBeforeCreate() {
+
+        this.createAt = Instant.now();
+    }
+
+    @PreUpdate
+    public void handleBeforeUpdate() {
+        this.updateAt = Instant.now();
+
+    }
 }
