@@ -10,9 +10,9 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class RestResponse<T> {
-    private int statusCode;
+    private int statusCode = 200;
     private String error;
 
-    private Object message;
+    private Object message = "success";
     private T data;
 }

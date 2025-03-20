@@ -9,4 +9,6 @@ import com.manage.quanlykytucxa.domain.User;
 public interface UserRepository extends JpaRepository<User, Long> {
 
     boolean existsByEmail(String email);
+
+    User findByEmail(String email);
 }

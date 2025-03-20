@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -38,12 +40,14 @@ public class GlobalException {
 
     @ExceptionHandler(value = {
             RuntimeException.class,
+            UsernameNotFoundException.class,
+            BadCredentialsException.class
     })
     public ResponseEntity<RestResponse<Object>> handlePermissionException(Exception ex) {
         RestResponse<Object> res = new RestResponse<Object>();
         res.setStatusCode(HttpStatus.BAD_REQUEST.value());
         res.setError("BAD_REQUEST");
-        res.setMessage(ex.getMessage());
+        res.setMessage("username / password không đúng ! ");
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(res);
     }
 }
