@@ -1,8 +1,11 @@
 package com.manage.quanlykytucxa.service;
 
+import java.util.List;
+
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
+import com.manage.quanlykytucxa.domain.Permission;
 import com.manage.quanlykytucxa.domain.Role;
 import com.manage.quanlykytucxa.repository.PermissionRepository;
 import com.manage.quanlykytucxa.repository.RoleRepository;
@@ -17,28 +20,27 @@ public class RoleService {
         this.roleRepository = roleRepository;
     }
 
-    // public List<Permission> convertToListPermission(Role role) {
+    public List<Permission> convertToListPermission(Role role) {
 
-    // List<Long> permissionsId = role.getPermissions()
-    // .stream().map(x -> x.getId()).toList();
-    // List<Permission> permissions =
-    // this.permissionRepository.findByIdIn(permissionsId);
+        List<Long> permissionsId = role.getPermissions()
+                .stream().map(x -> x.getId()).toList();
+        List<Permission> permissions = this.permissionRepository.findByIdIn(permissionsId);
 
-    // return permissions;
-    // }
+        return permissions;
+    }
 
-    // public Role create(Role role) throws IdInvalidException {
-    // boolean roleExist = roleRepository.existsByName(role.getName());
-    // if (roleExist) {
-    // throw new IdInvalidException("Role name already exists");
-    // }
-    // if (role.getPermissions() != null) {
+    public Role create(Role role) {
+        boolean roleExist = roleRepository.existsByName(role.getName());
+        if (roleExist) {
+            throw new RuntimeException("Role name already exists");
+        }
+        if (role.getPermissions() != null) {
 
-    // role.setPermissions(convertToListPermission(role));
-    // }
+            role.setPermissions(convertToListPermission(role));
+        }
 
-    // return roleRepository.save(role);
-    // }
+        return roleRepository.save(role);
+    }
 
     // public Role update(Role role) throws IdInvalidException {
 

@@ -35,8 +35,6 @@ public class Role {
 
     private String description;
     private boolean active;
-    private Instant createdAt;
-    private Instant updatedAt;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(value = { "roles" })
