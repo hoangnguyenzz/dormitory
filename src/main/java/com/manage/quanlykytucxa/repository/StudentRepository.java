@@ -1,0 +1,13 @@
+package com.manage.quanlykytucxa.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+
+import com.manage.quanlykytucxa.domain.Student;
+
+public interface StudentRepository extends JpaRepository<Student, Long>, JpaSpecificationExecutor<Student> {
+    boolean existsByStudentCode(String studentCode);
+
+    Student findByStudentCode(String studentCode);
+
+}

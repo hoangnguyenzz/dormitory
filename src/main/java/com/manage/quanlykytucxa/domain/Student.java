@@ -33,9 +33,8 @@ public class Student {
     private String school;
     private int year;
 
-    // Quan hệ 1-1 với User
     @OneToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
     @ManyToOne
     @JoinColumn(name = "room_id")

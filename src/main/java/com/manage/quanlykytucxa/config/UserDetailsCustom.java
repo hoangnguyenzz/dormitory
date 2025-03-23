@@ -25,7 +25,7 @@ public class UserDetailsCustom implements UserDetailsService {
         User user = this.userService.handleGetUserByEmail(username);
 
         if (user == null) {
-            throw new BadCredentialsException("");
+            throw new BadCredentialsException("Không tìm thấy tài khoản : " + username);
         }
 
         return new org.springframework.security.core.userdetails.User(
