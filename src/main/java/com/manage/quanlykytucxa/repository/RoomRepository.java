@@ -7,4 +7,5 @@ import com.manage.quanlykytucxa.domain.Room;
 
 public interface RoomRepository extends JpaRepository<Room, Long>, JpaSpecificationExecutor<Room> {
 
+    boolean existsByName(String name);
 }

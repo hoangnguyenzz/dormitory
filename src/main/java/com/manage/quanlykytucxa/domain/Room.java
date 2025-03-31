@@ -27,7 +27,7 @@ public class Room {
     private Long id;
 
     @Column(unique = true, nullable = false)
-    private String roomNumber;
+    private String name;
 
     private int capacity;
     private boolean isAvailable;
