@@ -12,18 +12,18 @@ import lombok.Setter;
 public class ResLogin {
 
     private String accessToken;
-    // private UserResLoginDTO user;
+    private UserResLoginDTO user;
 
-    // @Setter
-    // @Getter
-    // @NoArgsConstructor
-    // @AllArgsConstructor
-    // public static class UserResLoginDTO {
-    // private long id;
-    // private String name;
-    // private String email;
-    // private Role role;
+    @Setter
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class UserResLoginDTO {
+        private long id;
+        private String name;
+        private String email;
+        private Role role;
 
-    // }
+    }
 
 }
