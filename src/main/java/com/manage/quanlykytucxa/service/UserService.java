@@ -15,6 +15,7 @@ import com.manage.quanlykytucxa.domain.User;
 import com.manage.quanlykytucxa.domain.response.ResultPagination;
 import com.manage.quanlykytucxa.repository.RoleRepository;
 import com.manage.quanlykytucxa.repository.UserRepository;
+import com.manage.quanlykytucxa.util.SecurityUtil;
 
 @Service
 public class UserService {
@@ -95,5 +96,22 @@ public class UserService {
     // Delete method
     public void deleteUser(Long id) {
         this.userRepository.deleteById(id);
+    }
+
+    public User getCurrentUserWithToken() {
+        String email = SecurityUtil.getCurrentUserLogin().isPresent()
+                ? SecurityUtil.getCurrentUserLogin().get()
+                : "";
+
+        if (email.equals("")) {
+            throw new RuntimeException("Access Token không hợp lệ !");
+        }
+        User currentUser = handleGetUserByUsername(email);
+        return currentUser;
+
+    }
+
+    public User handleGetUserByUsername(String username) {
+        return this.userRepository.findByEmail(username);
     }
 }

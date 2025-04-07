@@ -3,10 +3,12 @@ package com.manage.quanlykytucxa.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.manage.quanlykytucxa.domain.Student;
 import com.manage.quanlykytucxa.domain.User;
 import com.manage.quanlykytucxa.domain.request.ReqLogin;
 import com.manage.quanlykytucxa.domain.response.ResLogin;
 import com.manage.quanlykytucxa.domain.response.RestResponse;
+import com.manage.quanlykytucxa.repository.StudentRepository;
 import com.manage.quanlykytucxa.service.UserService;
 import com.manage.quanlykytucxa.util.SecurityUtil;
 
@@ -24,10 +26,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class AuthController {
         private final UserService userService;
         private final SecurityUtil securityUtil;
+        private final StudentRepository studentRepository;
         private AuthenticationManagerBuilder authenticationManagerBuilder;
 
         public AuthController(UserService userService, SecurityUtil securityUtil,
-                        AuthenticationManagerBuilder authenticationManagerBuilder) {
+                        AuthenticationManagerBuilder authenticationManagerBuilder,
+                        StudentRepository studentRepository) {
+                this.studentRepository = studentRepository;
                 this.userService = userService;
                 this.securityUtil = securityUtil;
                 this.authenticationManagerBuilder = authenticationManagerBuilder;
@@ -64,6 +69,17 @@ public class AuthController {
                 res.setAccessToken(accessToken);
                 rest.setData(res);
                 return ResponseEntity.ok(rest);
+        }
+
+        @GetMapping("/account")
+        public ResponseEntity<Student> getAccount() {
+                User currentUser = this.userService.getCurrentUserWithToken();
+                Student student = this.studentRepository.findByUser(currentUser);
+                if (student == null) {
+                        return ResponseEntity.badRequest().body(null);
+                }
+
+                return ResponseEntity.ok().body(student);
         }
 
 }
