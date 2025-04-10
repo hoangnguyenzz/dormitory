@@ -18,6 +18,7 @@ import com.turkraft.springfilter.boot.Filter;
 
 import io.micrometer.core.ipc.http.HttpSender.Response;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -48,10 +49,16 @@ public class RoomController {
     }
 
     @GetMapping()
-    public ResponseEntity<ResultPagination> getUsers(
+    public ResponseEntity<ResultPagination> getRooms(
 
             @Filter Specification<Room> spec, Pageable pageable) {
 
         return ResponseEntity.ok(this.roomService.getAllRooms(spec, pageable));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> getDeleteById(@PathVariable long id) {
+        this.roomService.deleteById(id);
+        return ResponseEntity.noContent().build();
     }
 }
