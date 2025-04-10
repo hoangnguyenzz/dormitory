@@ -29,7 +29,7 @@ public class RoomService {
 
     public Room create(Room room) {
         if (this.roomRepository.existsByName(room.getName())) {
-            throw new RuntimeException("Room name already exists");
+            throw new RuntimeException("Tên phòng đã tồn tại");
         }
 
         if (room.getStudents() != null) {
