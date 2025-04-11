@@ -85,14 +85,14 @@ public class UserService {
 
         // check role
         if (user.getRole() != null) {
-            Optional<Role> r = this.roleRepository.findById(user.getRole().getId());
-            user.setRole(r.get() != null ? r.get() : null);
+            Role r = this.roleRepository.findByName(request.getRole().getName());
+            user.setRole(r != null ? r : null);
+         System.out.println(r.getId()+" - -"+r.getName());
         }
-        user.setName(request.getName());
-
         return userRepository.save(user);
     }
 
+    
     // Delete method
     public void deleteUser(Long id) {
         this.userRepository.deleteById(id);

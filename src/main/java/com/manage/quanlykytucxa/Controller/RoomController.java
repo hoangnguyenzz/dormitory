@@ -1,6 +1,6 @@
 package com.manage.quanlykytucxa.controller;
 
-import org.springframework.boot.actuate.autoconfigure.observation.ObservationProperties.Http;
+
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.manage.quanlykytucxa.domain.Room;
-import com.manage.quanlykytucxa.domain.User;
+
 import com.manage.quanlykytucxa.domain.response.ResultPagination;
 import com.manage.quanlykytucxa.service.RoomService;
 import com.turkraft.springfilter.boot.Filter;
 
-import io.micrometer.core.ipc.http.HttpSender.Response;
+
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,7 +31,6 @@ public class RoomController {
     public RoomController(RoomService roomService) {
         this.roomService = roomService;
     }
-
     @PostMapping()
     public ResponseEntity<Room> createRoom(@RequestBody Room request) {
 

@@ -7,8 +7,11 @@ import com.turkraft.springfilter.boot.Filter;
 
 import jakarta.validation.Valid;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import org.springframework.data.domain.Pageable;
@@ -38,11 +41,25 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.CREATED).body(res);
     }
 
+    @PutMapping()
+    public ResponseEntity<RestResponse> updateUser(@RequestBody User user) {
+        RestResponse res = new RestResponse();
+        res.setData(userService.updateUser(user));
+
+        return ResponseEntity.status(HttpStatus.OK).body(res);
+    }
+
+
     @GetMapping()
     public ResponseEntity<ResultPagination> getUsers(
 
             @Filter Specification<User> spec, Pageable pageable) {
 
         return ResponseEntity.ok(this.userService.getAllUsers(spec, pageable));
+    }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteUser(@PathVariable long id) {
+        this.userService.deleteUser(id);
+        return ResponseEntity.noContent().build();
     }
 }
