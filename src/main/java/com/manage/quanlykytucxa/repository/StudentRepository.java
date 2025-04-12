@@ -16,4 +16,6 @@ public interface StudentRepository extends JpaRepository<Student, Long>, JpaSpec
     List<Student> findByIdIn(List<Long> id);
 
     Student findByUser(User user);
+
+    void deleteByUser(User user);
 }

@@ -14,8 +14,11 @@ import com.manage.quanlykytucxa.domain.Role;
 import com.manage.quanlykytucxa.domain.User;
 import com.manage.quanlykytucxa.domain.response.ResultPagination;
 import com.manage.quanlykytucxa.repository.RoleRepository;
+import com.manage.quanlykytucxa.repository.StudentRepository;
 import com.manage.quanlykytucxa.repository.UserRepository;
 import com.manage.quanlykytucxa.util.SecurityUtil;
+
+import jakarta.transaction.Transactional;
 
 @Service
 public class UserService {
@@ -25,9 +28,11 @@ public class UserService {
     private final PasswordEncoder passwordEncoder;
 
     private final RoleRepository roleRepository;
+    private final StudentRepository studentRepository;
 
     public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder,
-            RoleRepository roleRepository) {
+            RoleRepository roleRepository, StudentRepository studentRepository) {
+        this.studentRepository = studentRepository;
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.roleRepository = roleRepository;
@@ -87,14 +92,16 @@ public class UserService {
         if (user.getRole() != null) {
             Role r = this.roleRepository.findByName(request.getRole().getName());
             user.setRole(r != null ? r : null);
-         System.out.println(r.getId()+" - -"+r.getName());
+            System.out.println(r.getId() + " - -" + r.getName());
         }
         return userRepository.save(user);
     }
 
-    
     // Delete method
+    @Transactional
     public void deleteUser(Long id) {
+        User user = this.getUserById(id);
+        this.studentRepository.deleteByUser(user);
         this.userRepository.deleteById(id);
     }
 

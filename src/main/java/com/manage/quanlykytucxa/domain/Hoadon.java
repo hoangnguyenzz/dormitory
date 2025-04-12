@@ -10,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.PrePersist;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,18 +21,25 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Invoice {
+public class Hoadon {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    private InvoiceEnum type;
-    private Instant createAt;
-    private Instant updateAt;
+    private long id;
 
     @ManyToOne
-    @JoinColumn(name = "student_id", nullable = false)
-    private Student student;
+    @JoinColumn(name = "room_id")
+    private Room room;
+    private int soDien;
+    private int soNuoc;
+    private double tienDien;
+    private double tienNuoc;
+    private double tongTien;
+    private InvoiceEnum trangThai;
+    private Instant createAt;
 
-    // Getters and Setters
+    @PrePersist
+    public void handleBeforeCreate() {
+
+        this.createAt = Instant.now();
+    }
 }

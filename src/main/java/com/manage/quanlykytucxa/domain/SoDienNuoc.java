@@ -1,7 +1,6 @@
 package com.manage.quanlykytucxa.domain;
 
 import java.time.Instant;
-import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,6 +8,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.criteria.CriteriaBuilder.In;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,20 +20,22 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Contract {
+public class SoDienNuoc {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
-    private Instant startDate;
-    private Instant endDate;
-    private boolean isActive;
-
-    private Instant createAt;
-    private Instant updateAt;
-
     @ManyToOne
-    @JoinColumn(name = "student_id", nullable = false)
-    private Student student;
+    @JoinColumn(name = "room_id")
+    private Room room;
+    private int soDienDau;
+    private int soDienCuoi;
+    private int soNuocDau;
+    private int soNuocCuoi;
+    private Instant createAt;
 
+    @PrePersist
+    public void handleBeforeCreate() {
+
+        this.createAt = Instant.now();
+    }
 }

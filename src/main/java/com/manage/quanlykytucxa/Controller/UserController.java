@@ -49,7 +49,6 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.OK).body(res);
     }
 
-
     @GetMapping()
     public ResponseEntity<ResultPagination> getUsers(
 
@@ -57,8 +56,9 @@ public class UserController {
 
         return ResponseEntity.ok(this.userService.getAllUsers(spec, pageable));
     }
+
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteUser(@PathVariable long id) {
+    public ResponseEntity<Void> deleteUser(@PathVariable("id") long id) {
         this.userService.deleteUser(id);
         return ResponseEntity.noContent().build();
     }
