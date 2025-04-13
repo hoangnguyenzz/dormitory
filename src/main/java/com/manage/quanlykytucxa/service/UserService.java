@@ -14,6 +14,7 @@ import com.manage.quanlykytucxa.domain.Role;
 import com.manage.quanlykytucxa.domain.User;
 import com.manage.quanlykytucxa.domain.response.ResultPagination;
 import com.manage.quanlykytucxa.repository.RoleRepository;
+import com.manage.quanlykytucxa.repository.RoomRepository;
 import com.manage.quanlykytucxa.repository.StudentRepository;
 import com.manage.quanlykytucxa.repository.UserRepository;
 import com.manage.quanlykytucxa.util.SecurityUtil;
@@ -29,9 +30,11 @@ public class UserService {
 
     private final RoleRepository roleRepository;
     private final StudentRepository studentRepository;
+    private final RoomRepository roomRepository;
 
     public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder,
-            RoleRepository roleRepository, StudentRepository studentRepository) {
+            RoleRepository roleRepository, StudentRepository studentRepository, RoomRepository roomRepository) {
+        this.roomRepository = roomRepository;
         this.studentRepository = studentRepository;
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
@@ -43,11 +46,7 @@ public class UserService {
         if (this.userRepository.existsByEmail(user.getEmail())) {
             throw new RuntimeException("Email đã tồn tại !");
         }
-        // check role
-        if (user.getRole() != null) {
-            Optional<Role> r = this.roleRepository.findById(user.getRole().getId());
-            user.setRole(r.get() != null ? r.get() : null);
-        }
+        user.setRole(this.roleRepository.findByName("USER"));
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
@@ -83,16 +82,25 @@ public class UserService {
         return rs;
     }
 
+    public List<User> getAllUsersByRoomId(Long roomId) {
+        return this.userRepository.findByRoomId(roomId);
+    }
+
     // Update method
     public User updateUser(User request) {
         User user = userRepository.findById(request.getId())
-                .orElseThrow(() -> new RuntimeException("User not found with id " + request.getId()));
+                .orElseThrow(() -> new RuntimeException("Không tìm thấy người này " + request.getId()));
 
         // check role
-        if (user.getRole() != null) {
+        if (request.getRole() != null) {
             Role r = this.roleRepository.findByName(request.getRole().getName());
             user.setRole(r != null ? r : null);
             System.out.println(r.getId() + " - -" + r.getName());
+        }
+        if (request.getRoom() != null) {
+            user.setRoom(this.roomRepository.findById(request.getRoom().getId())
+                    .orElseThrow(() -> new RuntimeException("Room not found with id " +
+                            request.getRoom().getId())));
         }
         return userRepository.save(user);
     }
@@ -103,6 +111,12 @@ public class UserService {
         User user = this.getUserById(id);
         this.studentRepository.deleteByUser(user);
         this.userRepository.deleteById(id);
+    }
+
+    public void deleteUserFromRoom(Long id) {
+        User user = this.getUserById(id);
+        user.setRoom(null);
+        this.userRepository.save(user);
     }
 
     public User getCurrentUserWithToken() {

@@ -17,13 +17,11 @@ public class StudentService {
 
     private final StudentRepository studentRepository;
     private final UserService userService;
-    private final RoomRepository roomRepository;
 
-    public StudentService(StudentRepository studentRepository, UserService userService,
-            RoomRepository roomRepository) {
+    public StudentService(StudentRepository studentRepository, UserService userService) {
         this.studentRepository = studentRepository;
         this.userService = userService;
-        this.roomRepository = roomRepository;
+
     }
 
     public Student createStudent(Student student) {
@@ -45,10 +43,11 @@ public class StudentService {
         student.setStudentCode(request.getStudentCode());
         student.setSchool(request.getSchool());
         student.setYear(request.getYear());
-        if (request.getRoom() != null) {
-            student.setRoom(this.roomRepository.findById(request.getRoom().getId())
-                    .orElseThrow(() -> new RuntimeException("Room not found with id " + request.getRoom().getId())));
-        }
+        // if (request.getRoom() != null) {
+        // student.setRoom(this.roomRepository.findById(request.getRoom().getId())
+        // .orElseThrow(() -> new RuntimeException("Room not found with id " +
+        // request.getRoom().getId())));
+        // }
         return studentRepository.save(student);
     }
 

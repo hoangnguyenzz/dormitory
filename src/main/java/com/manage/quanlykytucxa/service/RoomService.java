@@ -1,16 +1,11 @@
 package com.manage.quanlykytucxa.service;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import com.manage.quanlykytucxa.domain.Room;
-import com.manage.quanlykytucxa.domain.Student;
-import com.manage.quanlykytucxa.domain.User;
 import com.manage.quanlykytucxa.domain.response.ResultPagination;
 import com.manage.quanlykytucxa.repository.RoomRepository;
 import com.manage.quanlykytucxa.repository.StudentRepository;
@@ -32,13 +27,13 @@ public class RoomService {
             throw new RuntimeException("Tên phòng đã tồn tại");
         }
 
-        if (room.getStudents() != null) {
-            List<Long> studentIds = room.getStudents().stream().map(
-                    student -> student.getId()).collect(Collectors.toList());
+        // if (room.getStudents() != null) {
+        // List<Long> studentIds = room.getStudents().stream().map(
+        // student -> student.getId()).collect(Collectors.toList());
 
-            List<Student> students = this.studentRepository.findByIdIn(studentIds);
-            room.setStudents(students);
-        }
+        // List<Student> students = this.studentRepository.findByIdIn(studentIds);
+        // room.setStudents(students);
+        // }
 
         return this.roomRepository.save(room);
     }
@@ -52,13 +47,13 @@ public class RoomService {
         roomDb.setCapacity(request.getCapacity());
         roomDb.setAvailable(request.isAvailable());
 
-        if (request.getStudents() != null) {
-            List<Long> studentIds = request.getStudents().stream().map(
-                    student -> student.getId()).collect(Collectors.toList());
+        // if (request.getStudents() != null) {
+        // List<Long> studentIds = request.getStudents().stream().map(
+        // student -> student.getId()).collect(Collectors.toList());
 
-            List<Student> students = this.studentRepository.findByIdIn(studentIds);
-            roomDb.setStudents(students);
-        }
+        // List<Student> students = this.studentRepository.findByIdIn(studentIds);
+        // roomDb.setStudents(students);
+        // }
 
         return this.roomRepository.save(roomDb);
     }

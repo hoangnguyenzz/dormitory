@@ -43,7 +43,7 @@ public class StudentController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Student> getStudentById(@PathVariable long id) {
+    public ResponseEntity<Student> getStudentById(@PathVariable("id") long id) {
         return ResponseEntity.ok(this.studentService.getStudentById(id));
     }
 
@@ -53,7 +53,7 @@ public class StudentController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteStudent(@PathVariable long id) {
+    public ResponseEntity<Void> deleteStudent(@PathVariable("id") long id) {
         this.studentService.deleteStudent(id);
         return ResponseEntity.noContent().build();
     }

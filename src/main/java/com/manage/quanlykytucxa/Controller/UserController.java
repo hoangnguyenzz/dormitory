@@ -62,4 +62,18 @@ public class UserController {
         this.userService.deleteUser(id);
         return ResponseEntity.noContent().build();
     }
+
+    @GetMapping("/byroom/{id}")
+    public ResponseEntity<RestResponse> getUsersByRoom(@PathVariable("id") long id) {
+        RestResponse res = new RestResponse();
+        res.setData(this.userService.getAllUsersByRoomId(id));
+        return ResponseEntity.ok(res);
+    }
+
+    @PostMapping("/deleteuserfromroom/{id}")
+    public ResponseEntity<String> deleteUserFromRoom(@PathVariable("id") long id) {
+
+        this.userService.deleteUserFromRoom(id);
+        return ResponseEntity.ok("Xóa thành công !");
+    }
 }

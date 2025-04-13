@@ -3,6 +3,8 @@ package com.manage.quanlykytucxa.domain;
 import java.time.Instant;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -32,8 +34,9 @@ public class Room {
     private int capacity;
     private boolean isAvailable;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "room")
-    private List<Student> students;
+    private List<User> users;
     private Instant createAt;
     private Instant updateAt;
 
