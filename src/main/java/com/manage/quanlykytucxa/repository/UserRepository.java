@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.manage.quanlykytucxa.domain.User;
@@ -16,5 +17,8 @@ public interface UserRepository extends JpaRepository<User, Long>, JpaSpecificat
     User findByEmail(String email);
 
     List<User> findByRoomId(Long roomId);
+
+    @Query("SELECT u FROM User u LEFT JOIN Vehicle v ON v.user = u WHERE v IS NULL")
+    List<User> findUsersWithoutVehicles();
 
 }

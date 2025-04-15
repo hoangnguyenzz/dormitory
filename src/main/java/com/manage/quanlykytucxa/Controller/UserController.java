@@ -76,4 +76,11 @@ public class UserController {
         this.userService.deleteUserFromRoom(id);
         return ResponseEntity.ok("Xóa thành công !");
     }
+
+    @GetMapping("/novehicle")
+    public ResponseEntity<RestResponse> getUsersWithoutVehicles() {
+        RestResponse res = new RestResponse();
+        res.setData(this.userService.getAllUsersWithoutVehicles());
+        return ResponseEntity.ok(res);
+    }
 }

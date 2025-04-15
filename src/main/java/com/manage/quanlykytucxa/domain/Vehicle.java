@@ -29,7 +29,7 @@ public class Vehicle {
     private String type;
 
     @OneToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "user_id")
     private User user;
     private Instant createAt;
     private Instant updateAt;

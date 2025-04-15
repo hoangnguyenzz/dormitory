@@ -2,14 +2,18 @@ package com.manage.quanlykytucxa.domain;
 
 import java.time.Instant;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.manage.quanlykytucxa.util.constant.GenderEnum;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.validation.constraints.NotBlank;
@@ -45,10 +49,15 @@ public class User {
     @JoinColumn(name = "room_id")
     private Room room;
 
+    @JsonIgnore
+    @OneToOne(mappedBy = "user", fetch = FetchType.LAZY)
+    private Vehicle vehicle;
+
     @PrePersist
     public void handleBeforeCreate() {
 
         this.createAt = Instant.now();
+
     }
 
     @PreUpdate

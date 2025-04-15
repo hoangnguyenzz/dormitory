@@ -135,4 +135,8 @@ public class UserService {
     public User handleGetUserByUsername(String username) {
         return this.userRepository.findByEmail(username);
     }
+
+    public List<User> getAllUsersWithoutVehicles() {
+        return this.userRepository.findUsersWithoutVehicles();
+    }
 }
