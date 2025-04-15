@@ -57,4 +57,8 @@ public class HoaDonService {
         return rs;
     }
 
+    public void delete(Long id){
+        this.hoadonRepository.deleteById(id);
+    }
+
 }

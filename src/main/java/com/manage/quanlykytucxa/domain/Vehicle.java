@@ -28,9 +28,9 @@ public class Vehicle {
     private String licensePlate;
     private String type;
 
-    @ManyToOne
-    @JoinColumn(name = "student_id", nullable = false)
-    private Student student;
+    @OneToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
     private Instant createAt;
     private Instant updateAt;
 

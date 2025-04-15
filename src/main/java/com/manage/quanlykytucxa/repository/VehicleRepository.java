@@ -7,4 +7,5 @@ import com.manage.quanlykytucxa.domain.Vehicle;
 
 public interface VehicleRepository extends JpaRepository<Vehicle, Long>, JpaSpecificationExecutor<Vehicle> {
 
+    boolean existsByLicensePlate(String licensePlate);
 }

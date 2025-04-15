@@ -12,41 +12,40 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.manage.quanlykytucxa.domain.Hoadon;
-import com.manage.quanlykytucxa.domain.SoDienNuoc;
 import com.manage.quanlykytucxa.domain.User;
+import com.manage.quanlykytucxa.domain.Vehicle;
 import com.manage.quanlykytucxa.domain.response.RestResponse;
 import com.manage.quanlykytucxa.domain.response.ResultPagination;
-import com.manage.quanlykytucxa.service.HoaDonService;
+import com.manage.quanlykytucxa.service.VehicleService;
 import com.turkraft.springfilter.boot.Filter;
 
 @Controller
-@RequestMapping("/api/v1/hoadon")
-public class HoaHonController {
+@RequestMapping("/api/v1/vehicles")
+public class VehicleController {
+    
+    private final VehicleService vehicleService;
 
-    private final HoaDonService hoaDonService;
-
-    public HoaHonController(HoaDonService hoaDonService) {
-        this.hoaDonService = hoaDonService;
+    public VehicleController(VehicleService vehicleService) {
+        this.vehicleService = vehicleService;
     }
 
-    @PostMapping("/{id}")
-    public ResponseEntity<RestResponse> createHoaDon(@PathVariable("id") Long id) {
+    @PostMapping()
+    public ResponseEntity<RestResponse> create(@RequestBody Vehicle vehicle) {
         RestResponse res = new RestResponse();
-        res.setData(hoaDonService.create(id));
+        res.setData(this.vehicleService.create(vehicle));
         return ResponseEntity.status(HttpStatus.CREATED).body(res);
     }
 
-    @GetMapping()
-    public ResponseEntity<ResultPagination> getHoaDon(
-
-            @Filter Specification<Hoadon> spec, Pageable pageable) {
-
-        return ResponseEntity.ok(this.hoaDonService.getAllHoaDon(spec, pageable));
-    }
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable("id") long id) {
-        this.hoaDonService.delete(id);
+        this.vehicleService.delete(id);
         return ResponseEntity.noContent().build();
+    }
+     @GetMapping()
+    public ResponseEntity<ResultPagination> getUsers(
+
+            @Filter Specification<Vehicle> spec, Pageable pageable) {
+
+        return ResponseEntity.ok(this.vehicleService.getAllVehicles(spec, pageable));
     }
 }
