@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.manage.quanlykytucxa.domain.User;
+
 import com.manage.quanlykytucxa.domain.Vehicle;
 import com.manage.quanlykytucxa.domain.response.RestResponse;
 import com.manage.quanlykytucxa.domain.response.ResultPagination;

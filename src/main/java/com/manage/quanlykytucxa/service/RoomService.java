@@ -17,6 +17,8 @@ public class RoomService {
 
     private final StudentRepository studentRepository;
 
+    private double price=500000;
+
     public RoomService(RoomRepository roomRepository, StudentRepository studentRepository) {
         this.roomRepository = roomRepository;
         this.studentRepository = studentRepository;
@@ -34,6 +36,7 @@ public class RoomService {
         // List<Student> students = this.studentRepository.findByIdIn(studentIds);
         // room.setStudents(students);
         // }
+        room.setPrice(price);
 
         return this.roomRepository.save(room);
     }
@@ -46,6 +49,7 @@ public class RoomService {
         roomDb.setName(request.getName());
         roomDb.setCapacity(request.getCapacity());
         roomDb.setAvailable(request.isAvailable());
+        roomDb.setPrice(price);
 
         // if (request.getStudents() != null) {
         // List<Long> studentIds = request.getStudents().stream().map(

@@ -32,6 +32,7 @@ public class Room {
     private String name;
 
     private int capacity;
+    private double price;
     private boolean isAvailable;
 
     @JsonIgnore
