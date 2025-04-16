@@ -32,7 +32,7 @@ public class Contract {
     private Instant updateAt;
 
     @ManyToOne
-    @JoinColumn(name = "student_id", nullable = false)
-    private Student student;
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 
 }
