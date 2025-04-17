@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.manage.quanlykytucxa.domain.Room;
 import com.manage.quanlykytucxa.domain.response.ResultPagination;
+import com.manage.quanlykytucxa.domain.response.Thongkephong;
 import com.manage.quanlykytucxa.repository.RoomRepository;
 import com.manage.quanlykytucxa.repository.StudentRepository;
 
@@ -17,7 +18,7 @@ public class RoomService {
 
     private final StudentRepository studentRepository;
 
-    private double price=500000;
+    private double price = 500000;
 
     public RoomService(RoomRepository roomRepository, StudentRepository studentRepository) {
         this.roomRepository = roomRepository;
@@ -87,5 +88,12 @@ public class RoomService {
     public void deleteById(Long id) {
 
         this.roomRepository.deleteById(id);
+    }
+
+    public Thongkephong countRoomActive() {
+        Thongkephong thongkephong = new Thongkephong();
+        thongkephong.setActive(this.roomRepository.countByIsAvailableTrue());
+        thongkephong.setInactive(this.roomRepository.countByIsAvailableFalse());
+        return thongkephong;
     }
 }

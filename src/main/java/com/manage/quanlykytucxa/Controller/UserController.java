@@ -1,6 +1,7 @@
 package com.manage.quanlykytucxa.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.manage.quanlykytucxa.service.UserService;
 import com.turkraft.springfilter.boot.Filter;
@@ -14,6 +15,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
@@ -22,14 +28,17 @@ import org.springframework.http.ResponseEntity;
 import com.manage.quanlykytucxa.domain.User;
 import com.manage.quanlykytucxa.domain.response.RestResponse;
 import com.manage.quanlykytucxa.domain.response.ResultPagination;
+import com.manage.quanlykytucxa.repository.UserRepository;
 
 @RestController
 @RequestMapping("/api/v1/users")
 public class UserController {
 
     private UserService userService;
+    private UserRepository userRepository;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, UserRepository userRepository) {
+        this.userRepository = userRepository;
         this.userService = userService;
     }
 
@@ -83,4 +92,22 @@ public class UserController {
         res.setData(this.userService.getAllUsersWithoutVehicles());
         return ResponseEntity.ok(res);
     }
+
+    @GetMapping("/statistics")
+    public ResponseEntity<List<Map<String, Object>>> getUserStatistics(
+            @RequestParam("month1") int month1,
+            @RequestParam("month2") int month2,
+            @RequestParam("year") int year) {
+        List<Object[]> data = userRepository.countUserByMonths(month1, month2, year);
+
+        List<Map<String, Object>> result = data.stream().map(row -> {
+            Map<String, Object> map = new HashMap<>();
+            map.put("month", row[0]);
+            map.put("total", row[1]);
+            return map;
+        }).collect(Collectors.toList());
+
+        return ResponseEntity.ok(result);
+    }
+
 }

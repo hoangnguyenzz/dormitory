@@ -59,4 +59,9 @@ public class RoomController {
         this.roomService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
+
+    @GetMapping("/thongke")
+    public ResponseEntity<?> getThongKePhong() {
+        return ResponseEntity.ok(this.roomService.countRoomActive());
+    }
 }
