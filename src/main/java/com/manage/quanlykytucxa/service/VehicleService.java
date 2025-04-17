@@ -5,7 +5,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
-import com.manage.quanlykytucxa.domain.Student;
 import com.manage.quanlykytucxa.domain.Vehicle;
 import com.manage.quanlykytucxa.domain.response.ResultPagination;
 import com.manage.quanlykytucxa.repository.VehicleRepository;

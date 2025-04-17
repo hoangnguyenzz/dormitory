@@ -31,7 +31,7 @@ public class HoaDonService {
             hoadon.setSoDien(soDn.getSoDienCuoi() - soDn.getSoDienDau());
             hoadon.setSoNuoc(soDn.getSoNuocCuoi() - soDn.getSoNuocDau());
             hoadon.setTienDien(hoadon.getSoDien() * 3000);
-            hoadon.setTienNuoc(hoadon.getSoNuoc() * 2000);
+            hoadon.setTienNuoc(hoadon.getSoNuoc() * 8000);
             hoadon.setTongTien(hoadon.getTienDien() + hoadon.getTienNuoc());
             hoadon.setTrangThai(InvoiceEnum.CHUADONG);
             hoadon.setRoom(soDn.getRoom());

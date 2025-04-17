@@ -25,6 +25,7 @@ public class Vehicle {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    private String ticket;
     private String licensePlate;
     private String type;
 

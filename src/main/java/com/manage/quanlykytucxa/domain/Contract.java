@@ -9,6 +9,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.PrePersist;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,11 +29,15 @@ public class Contract {
     private Instant endDate;
     private boolean isActive;
 
-    private Instant createAt;
-    private Instant updateAt;
-
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
+
+     @PrePersist
+    public void handleBeforeCreate() {
+
+        this.startDate = Instant.now();
+
+    }
 }
