@@ -72,14 +72,10 @@ public class AuthController {
         }
 
         @GetMapping("/account")
-        public ResponseEntity<Student> getAccount() {
+        public ResponseEntity<User> getAccount() {
                 User currentUser = this.userService.getCurrentUserWithToken();
-                Student student = this.studentRepository.findByUser(currentUser);
-                if (student == null) {
-                        return ResponseEntity.badRequest().body(null);
-                }
 
-                return ResponseEntity.ok().body(student);
+                return ResponseEntity.ok().body(currentUser);
         }
 
 }

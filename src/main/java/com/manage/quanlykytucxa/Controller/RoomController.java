@@ -64,4 +64,5 @@ public class RoomController {
     public ResponseEntity<?> getThongKePhong() {
         return ResponseEntity.ok(this.roomService.countRoomActive());
     }
+
 }

@@ -49,6 +49,7 @@ public class UserService {
         user.setRole(this.roleRepository.findByName("USER"));
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+
         userRepository.save(user);
 
         return userRepository.save(user);
@@ -109,7 +110,7 @@ public class UserService {
     @Transactional
     public void deleteUser(Long id) {
         User user = this.getUserById(id);
-        this.studentRepository.deleteByUser(user);
+        // this.studentRepository.deleteByUser(user);
         this.userRepository.deleteById(id);
     }
 
@@ -139,4 +140,5 @@ public class UserService {
     public List<User> getAllUsersWithoutVehicles() {
         return this.userRepository.findUsersWithoutVehicles();
     }
+
 }

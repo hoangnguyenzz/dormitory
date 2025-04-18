@@ -11,6 +11,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,20 +22,16 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "sinh_vien")
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column(unique = true, nullable = false)
-    private String studentCode;
-
-    private String school;
-    private int year;
-
-    @OneToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    private String maSv;
+    private String lop;
+    private String chuyenNganh;
 
     private Instant createAt;
     private Instant updateAt;

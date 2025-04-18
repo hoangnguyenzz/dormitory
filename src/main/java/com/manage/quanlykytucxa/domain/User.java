@@ -5,6 +5,7 @@ import java.time.Instant;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.manage.quanlykytucxa.util.constant.GenderEnum;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -52,6 +53,9 @@ public class User {
     @JsonIgnore
     @OneToOne(mappedBy = "user", fetch = FetchType.LAZY)
     private Vehicle vehicle;
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "sinhvien_id")
+    private Student student;
 
     @PrePersist
     public void handleBeforeCreate() {
