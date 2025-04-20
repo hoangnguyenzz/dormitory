@@ -57,6 +57,18 @@ public class User {
     @JoinColumn(name = "sinhvien_id")
     private Student student;
 
+    public User(String name, String email, String password,
+            String phone, String avatar, GenderEnum gender, Role role, Student student) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.phone = phone;
+        this.avatar = avatar;
+        this.gender = gender;
+        this.role = role;
+        this.student = student;
+    }
+
     @PrePersist
     public void handleBeforeCreate() {
 

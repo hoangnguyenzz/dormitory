@@ -110,4 +110,11 @@ public class UserController {
         return ResponseEntity.ok(result);
     }
 
+    @PostMapping("/updatenameoravatar")
+    public ResponseEntity<RestResponse> updateName(@RequestBody User user) {
+        RestResponse res = new RestResponse();
+        res.setData(userService.updateNameOrAvatar(user));
+        return ResponseEntity.status(HttpStatus.OK).body(res);
+    }
+
 }

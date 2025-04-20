@@ -36,4 +36,9 @@ public class Role {
     @OneToMany(mappedBy = "role", fetch = FetchType.LAZY)
     @JsonIgnore
     List<User> users;
+
+    public Role(String name) {
+        this.name = name;
+    }
+
 }

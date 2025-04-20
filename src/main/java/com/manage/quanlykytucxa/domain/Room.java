@@ -41,6 +41,14 @@ public class Room {
     private Instant createAt;
     private Instant updateAt;
 
+    public Room(String name, int capacity, double price, boolean isAvailable) {
+        this.name = name;
+        this.capacity = capacity;
+        this.price = price;
+        this.isAvailable = isAvailable;
+
+    }
+
     @PrePersist
     public void handleBeforeCreate() {
 

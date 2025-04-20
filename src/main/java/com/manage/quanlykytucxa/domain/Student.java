@@ -36,6 +36,12 @@ public class Student {
     private Instant createAt;
     private Instant updateAt;
 
+    public Student(String maSv, String lop, String chuyenNganh) {
+        this.maSv = maSv;
+        this.lop = lop;
+        this.chuyenNganh = chuyenNganh;
+    }
+
     @PrePersist
     public void handleBeforeCreate() {
 

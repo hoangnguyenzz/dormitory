@@ -46,8 +46,9 @@ public class UserService {
         if (this.userRepository.existsByEmail(user.getEmail())) {
             throw new RuntimeException("Email đã tồn tại !");
         }
-        user.setRole(this.roleRepository.findByName("USER"));
-
+        if (user.getRole() == null) {
+            user.setRole(this.roleRepository.findByName("USER"));
+        }
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
         userRepository.save(user);
@@ -141,4 +142,15 @@ public class UserService {
         return this.userRepository.findUsersWithoutVehicles();
     }
 
+    public User updateNameOrAvatar(User user) {
+        User currentUser = this.userRepository.findById(user.getId())
+                .orElseThrow(() -> new RuntimeException("Không tìm thấy người này " + user.getId()));
+        if (user.getName() != null) {
+            currentUser.setName(user.getName());
+        } else if (user.getAvatar() != null) {
+            currentUser.setAvatar(user.getAvatar());
+
+        }
+        return this.userRepository.save(currentUser);
+    }
 }
