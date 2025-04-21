@@ -90,7 +90,6 @@ public void sendHoaDon(long id){
             email,          // Địa chỉ email người nhận
             subject,        // Tiêu đề email
             "hoadon",       // Template Thymeleaf
-            "hoang",        // Tên người nhận hoặc có thể thay bằng username
             hoadon          // Truyền đối tượng hoadon vào context Thymeleaf
         );
     }

@@ -6,6 +6,8 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import com.manage.quanlykytucxa.domain.Room;
+import com.manage.quanlykytucxa.domain.User;
+import com.manage.quanlykytucxa.domain.response.ResDangKiPhong;
 import com.manage.quanlykytucxa.domain.response.ResultPagination;
 import com.manage.quanlykytucxa.domain.response.Thongkephong;
 import com.manage.quanlykytucxa.repository.RoomRepository;
@@ -15,12 +17,15 @@ import com.manage.quanlykytucxa.repository.StudentRepository;
 public class RoomService {
 
     private final RoomRepository roomRepository;
+    private final EmailService emailService;
 
     private final StudentRepository studentRepository;
-
+private final UserService userService;
     private double price = 500000;
 
-    public RoomService(RoomRepository roomRepository, StudentRepository studentRepository) {
+    public RoomService(RoomRepository roomRepository, StudentRepository studentRepository,EmailService emailService,UserService userService) {
+        this.userService=userService;
+        this.emailService=emailService;
         this.roomRepository = roomRepository;
         this.studentRepository = studentRepository;
     }
@@ -96,4 +101,24 @@ public class RoomService {
         thongkephong.setInactive(this.roomRepository.countByIsAvailableFalse());
         return thongkephong;
     }
+    public void dangKiPhong(Long id) {
+        Room room=this.getById(id);
+         User currentUser = this.userService.getCurrentUserWithToken();
+
+         ResDangKiPhong dangKiPhong = new ResDangKiPhong(currentUser,room);
+       
+        this.emailService.sendEmailFromTemplateSync(
+            "hoangbn967@gmail.com",          // Địa chỉ email người nhận
+        "Thông tin đăng kí phòng",        // Tiêu đề email
+            "thongtindangki",       // Template Thymeleaf   
+            dangKiPhong          // Truyền đối tượng hoadon vào context Thymeleaf
+        );
+         this.emailService.sendEmailFromTemplateSync(
+            currentUser.getEmail(),          // Địa chỉ email người nhận
+        "Thông tin đăng kí phòng",        // Tiêu đề email
+            "dangkiphong",       // Template Thymeleaf   
+            room          // Truyền đối tượng hoadon vào context Thymeleaf
+        );
+    }
+
 }

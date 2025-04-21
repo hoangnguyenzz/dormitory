@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Thông tin đăng kí phòng</title>
+    <meta charset="UTF-8">
+</head>
+
+<body style="font-family: Arial, sans-serif; padding: 20px; background-color: #f8f9fa;">
+
+    <h2>✅ Đăng ký phòng thành công</h2>
+    <p>Chào <strong>Nguyễn Văn A</strong>,</p>
+    
+    <p>Hệ thống đã nhận được đơn đăng ký phòng <strong th:text="${data.name}"></strong> của bạn.</p>
+    
+    <p>📌 <strong>Để hoàn tất thủ tục, vui lòng đến địa điểm sau để xác nhận và thanh toán:</strong></p>
+    
+    <ul>
+      <li><strong>📍 Địa điểm:</strong> Văn phòng công tác hssv – Tầng 1, K2</li>
+      <li><strong>🕒 Thời gian:</strong> Trong vòng <strong>03 ngày</strong> kể từ ngày đăng ký</li>
+      <li><strong>💵 Nội dung thanh toán:</strong> Tiền phòng, cọc cơ sở vật chất (nếu có)</li>
+    </ul>
+    
+    <p>Nếu quá thời gian trên mà bạn chưa đến hoàn tất thủ tục, đơn đăng ký có thể bị <strong style="color:red;">hủy tự động</strong>.</p>
+    
+    <table border="1" cellpadding="6" cellspacing="0">
+      <tr><td><strong>🏠 Phòng đăng ký:</strong></td><td><strong th:text="${data.name}"></strong></td></tr>
+      <tr><td><strong>📅 Thời gian đăng ký:</strong></td><td><span th:text="${#dates.format(#dates.createNow(), 'dd/MM/yyyy HH:mm:ss')}"></span></td></tr>
+      <tr><td><strong>⏳ Trạng thái:</strong></td><td><span style="color: darkblue;">Chờ hoàn tất thủ tục</span></td></tr>
+    </table>
+    
+    <p>📞 Mọi thắc mắc vui lòng liên hệ Ban quản lý KTX qua email:admin@gmail.com hoặc số điện thoại:0328 458 124</p>
+    <p>Trân trọng,<br>Ban quản lý Ký túc xá</p>
+
+</body>
+</html>

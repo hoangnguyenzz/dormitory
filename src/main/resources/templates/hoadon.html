@@ -10,32 +10,32 @@
     <h1 style="text-align: center; color: #333;">Thông tin hoá đơn</h1>
 
     <p style="font-size: 16px; color: #555;">
-        <strong>Phòng:</strong> <span th:text="${invoice.room.name}" style="color: #2e3d49;"></span>
+        <strong>Phòng:</strong> <span th:text="${data.room.name}" style="color: #2e3d49;"></span>
     </p>
 
     <p style="font-size: 16px; color: #555;">
-        <strong>Số điện:</strong> <span th:text="${invoice.soDien}" style="color: #2e3d49;"></span>
+        <strong>Số điện:</strong> <span th:text="${data.soDien}" style="color: #2e3d49;"></span>
     </p>
 
     <p style="font-size: 16px; color: #555;">
-        <strong>Số nước:</strong> <span th:text="${invoice.soNuoc}" style="color: #2e3d49;"></span>
+        <strong>Số nước:</strong> <span th:text="${data.soNuoc}" style="color: #2e3d49;"></span>
     </p>
 
     <p style="font-size: 16px; color: #555;">
-        <strong>Tiền điện:</strong> <span th:text="${#numbers.formatDecimal(invoice.tienDien, 0, 'COMMA', 0, 'POINT')}" style="color: #2e3d49; font-weight: bold;">0</span> VND
+        <strong>Tiền điện:</strong> <span th:text="${#numbers.formatDecimal(data.tienDien, 0, 'COMMA', 0, 'POINT')}" style="color: #2e3d49; font-weight: bold;">0</span> VND
     </p>
     
     <p style="font-size: 16px; color: #555;">
-        <strong>Tiền nước:</strong> <span th:text="${#numbers.formatDecimal(invoice.tienNuoc, 0, 'COMMA', 0, 'POINT')}" style="color: #2e3d49; font-weight: bold;">0</span> VND
+        <strong>Tiền nước:</strong> <span th:text="${#numbers.formatDecimal(data.tienNuoc, 0, 'COMMA', 0, 'POINT')}" style="color: #2e3d49; font-weight: bold;">0</span> VND
     </p>
     
     <p style="font-size: 16px; color: #555;">
-        <strong>Tổng tiền:</strong> <span th:text="${#numbers.formatDecimal(invoice.tongTien, 0, 'COMMA', 0, 'POINT')}" style="color: #2e3d49; font-weight: bold; font-size: 18px; color: #FF5722;">0</span> VND
+        <strong>Tổng tiền:</strong> <span th:text="${#numbers.formatDecimal(data.tongTien, 0, 'COMMA', 0, 'POINT')}" style="color: #2e3d49; font-weight: bold; font-size: 18px; color: #FF5722;">0</span> VND
     </p>
     
 
     <p style="font-size: 16px; color: #555;">
-        <strong>Trạng thái:</strong> <span th:text="${invoice.trangThai == 'DADONG'} ? 'Đã đóng' : 'Chưa đóng'" style="color: #2e3d49;"></span>
+        <strong>Trạng thái:</strong> <span th:text="${data.trangThai == 'DADONG'} ? 'Đã đóng' : 'Chưa đóng'" style="color: #2e3d49;"></span>
     </p>
    
 
