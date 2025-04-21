@@ -17,9 +17,9 @@ public class EmailController {
     private final HoaDonService hoaDonService;
     private final RoomService roomService;
 
-    public EmailController(EmailService emailService,HoaDonService hoaDonService,RoomService roomService) {
-        this.roomService=roomService;
-this.hoaDonService =hoaDonService;
+    public EmailController(EmailService emailService, HoaDonService hoaDonService, RoomService roomService) {
+        this.roomService = roomService;
+        this.hoaDonService = hoaDonService;
         this.emailService = emailService;
     }
 
@@ -30,16 +30,17 @@ this.hoaDonService =hoaDonService;
         // this.emailService.sendEmailFromTemplateSync("nguyenvanhoang2004bn@gmail.com",
         // "Testing from Spring Boot",
         // "job");
-this.hoaDonService.sendHoaDon(id);
+        this.hoaDonService.sendHoaDon(id);
 
-        return "ok";    
+        return "ok";
     }
+
     @GetMapping("/dangkiphong/{id}")
 
     public String sendEmailDangKiPhong(@PathVariable("id") Long id) {
-      
-this.roomService.dangKiPhong(id);
 
-        return "ok";    
+        this.roomService.dangKiPhong(id);
+
+        return "ok";
     }
 }

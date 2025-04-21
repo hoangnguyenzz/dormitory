@@ -1,44 +1,50 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <title>Thông tin đăng kí phòng</title>
-    <meta charset="UTF-8">
+  <title>Thông tin đăng kí phòng</title>
+  <meta charset="UTF-8">
 </head>
 
 <body style="font-family: Arial, sans-serif; padding: 20px; background-color: #f8f9fa;">
 
-    <h2>📥 Đơn đăng ký phòng ký túc xá mới</h2>
-    <p>Một sinh viên vừa gửi yêu cầu đăng ký phòng. Thông tin chi tiết như sau:</p>
-    
-    <table border="1" cellpadding="6" cellspacing="0">
-      <tr>
-        <td><strong>👤 Họ tên:</strong></td>
-        <td th:text="${data.user.name}"></td>
-      </tr>
-      <tr>
-        <td><strong>🎓 MSSV:</strong></td>
-        <td th:text="${data.user.student.maSv}"></td>
-      </tr>
-      <tr>
-        <td><strong>✉️ Email:</strong></td>
-        <td th:text="${data.user.email}"></td>
-      </tr>
-      <tr>
-        <td><strong>🏠 Phòng đăng ký:</strong></td>
-        <td th:text="${data.room.name}"></td>
-      </tr>
-      <tr>
-        <td><strong>📅 Ngày đăng ký:</strong></td>
-        <td th:text="${#dates.format(#dates.createNow(), 'dd/MM/yyyy HH:mm:ss')}"></td>
-      </tr>
-      <tr>
-        <td><strong>⏳ Trạng thái:</strong></td>
-        <td>
-          <span th:style="'color: orange;'" th:text="'Chờ thanh toán'">Chờ thanh toán</span>
-        </td>
-      </tr>
-    </table>
-    
-    
+  <h2>📥 Đơn đăng ký phòng ký túc xá mới</h2>
+  <p>Một sinh viên vừa gửi yêu cầu đăng ký phòng. Thông tin chi tiết như sau:</p>
+
+  <table border="1" cellpadding="6" cellspacing="0">
+    <tr>
+      <td><strong>👤 Họ tên:</strong></td>
+      <td th:text="${data.user.name}"></td>
+    </tr>
+    <tr>
+      <td><strong>🎓 MSSV:</strong></td>
+      <td th:text="${data.user.student.maSv}"></td>
+    </tr>
+    <tr>
+      <td><strong>✉️ Email:</strong></td>
+      <td th:text="${data.user.email}"></td>
+    </tr>
+    <tr>
+      <td><strong>Số điện thoại</strong></td>
+      <td th:text="${data.user.phone}"></td>
+    </tr>
+    <tr>
+      <td><strong>🏠 Phòng đăng ký:</strong></td>
+      <td th:text="${data.room.name}"></td>
+    </tr>
+    <tr>
+      <td><strong>📅 Ngày đăng ký:</strong></td>
+      <td th:text="${#dates.format(#dates.createNow(), 'dd/MM/yyyy HH:mm:ss')}"></td>
+    </tr>
+    <tr>
+      <td><strong>⏳ Trạng thái:</strong></td>
+      <td>
+        <span th:style="'color: orange;'" th:text="'Chờ thanh toán'">Chờ thanh toán</span>
+      </td>
+    </tr>
+  </table>
+
+
 </body>
+
 </html>

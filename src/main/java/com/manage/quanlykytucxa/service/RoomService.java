@@ -20,12 +20,13 @@ public class RoomService {
     private final EmailService emailService;
 
     private final StudentRepository studentRepository;
-private final UserService userService;
+    private final UserService userService;
     private double price = 500000;
 
-    public RoomService(RoomRepository roomRepository, StudentRepository studentRepository,EmailService emailService,UserService userService) {
-        this.userService=userService;
-        this.emailService=emailService;
+    public RoomService(RoomRepository roomRepository, StudentRepository studentRepository, EmailService emailService,
+            UserService userService) {
+        this.userService = userService;
+        this.emailService = emailService;
         this.roomRepository = roomRepository;
         this.studentRepository = studentRepository;
     }
@@ -101,23 +102,24 @@ private final UserService userService;
         thongkephong.setInactive(this.roomRepository.countByIsAvailableFalse());
         return thongkephong;
     }
-    public void dangKiPhong(Long id) {
-        Room room=this.getById(id);
-         User currentUser = this.userService.getCurrentUserWithToken();
 
-         ResDangKiPhong dangKiPhong = new ResDangKiPhong(currentUser,room);
-       
+    public void dangKiPhong(Long id) {
+        Room room = this.getById(id);
+        User currentUser = this.userService.getCurrentUserWithToken();
+
+        ResDangKiPhong dangKiPhong = new ResDangKiPhong(currentUser, room);
+
         this.emailService.sendEmailFromTemplateSync(
-            "hoangbn967@gmail.com",          // Địa chỉ email người nhận
-        "Thông tin đăng kí phòng",        // Tiêu đề email
-            "thongtindangki",       // Template Thymeleaf   
-            dangKiPhong          // Truyền đối tượng hoadon vào context Thymeleaf
+                "hoangbn967@gmail.com", // Địa chỉ email người nhận
+                "Thông tin đăng kí phòng", // Tiêu đề email
+                "thongtindangki", // Template Thymeleaf
+                dangKiPhong // Truyền đối tượng hoadon vào context Thymeleaf
         );
-         this.emailService.sendEmailFromTemplateSync(
-            currentUser.getEmail(),          // Địa chỉ email người nhận
-        "Thông tin đăng kí phòng",        // Tiêu đề email
-            "dangkiphong",       // Template Thymeleaf   
-            room          // Truyền đối tượng hoadon vào context Thymeleaf
+        this.emailService.sendEmailFromTemplateSync(
+                currentUser.getEmail(), // Địa chỉ email người nhận
+                "Thông tin đăng kí phòng", // Tiêu đề email
+                "dangkiphong", // Template Thymeleaf
+                room // Truyền đối tượng hoadon vào context Thymeleaf
         );
     }
 

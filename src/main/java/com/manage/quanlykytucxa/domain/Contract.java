@@ -21,7 +21,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "hopdong")
+@Table(name = "hop_dong")
 public class Contract {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,8 +35,7 @@ public class Contract {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-
-     @PrePersist
+    @PrePersist
     public void handleBeforeCreate() {
 
         this.startDate = Instant.now();
