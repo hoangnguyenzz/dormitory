@@ -56,7 +56,7 @@ public class RoomService {
         roomDb.setName(request.getName());
         roomDb.setCapacity(request.getCapacity());
         roomDb.setAvailable(request.isAvailable());
-        roomDb.setPrice(price);
+        roomDb.setPrice(request.getPrice());
 
         // if (request.getStudents() != null) {
         // List<Long> studentIds = request.getStudents().stream().map(
