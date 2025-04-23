@@ -10,6 +10,6 @@ FROM openjdk:17-jdk-slim
 
 EXPOSE 8080
 
-COPY --from=build /build/libs/domitory-bcec.jar app.jar
+COPY --from=build /build/libs/quanlykytucxa-0.0.1-SNAPSHOT.jar app.jar
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
