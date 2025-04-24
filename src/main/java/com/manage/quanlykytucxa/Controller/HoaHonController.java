@@ -1,4 +1,4 @@
-package com.manage.quanlykytucxa.controller;
+package com.manage.quanlykytucxa.Controller;
 
 import java.util.Map;
 
