@@ -12,6 +12,7 @@ import com.manage.quanlykytucxa.domain.response.ResultPagination;
 import com.manage.quanlykytucxa.domain.response.Thongkephong;
 import com.manage.quanlykytucxa.repository.RoomRepository;
 import com.manage.quanlykytucxa.repository.StudentRepository;
+import com.manage.quanlykytucxa.util.constant.RoomEnum;
 
 @Service
 public class RoomService {
@@ -21,7 +22,7 @@ public class RoomService {
 
     private final StudentRepository studentRepository;
     private final UserService userService;
-    private double price = 500000;
+    private double price = 1200000;
 
     public RoomService(RoomRepository roomRepository, StudentRepository studentRepository, EmailService emailService,
             UserService userService) {
@@ -55,7 +56,7 @@ public class RoomService {
 
         roomDb.setName(request.getName());
         roomDb.setCapacity(request.getCapacity());
-        roomDb.setAvailable(request.isAvailable());
+        roomDb.setTrangThai(request.getTrangThai());
         roomDb.setPrice(request.getPrice());
 
         // if (request.getStudents() != null) {
@@ -98,8 +99,9 @@ public class RoomService {
 
     public Thongkephong countRoomActive() {
         Thongkephong thongkephong = new Thongkephong();
-        thongkephong.setActive(this.roomRepository.countByIsAvailableTrue());
-        thongkephong.setInactive(this.roomRepository.countByIsAvailableFalse());
+        thongkephong.setDANGHOATDONG(this.roomRepository.countByTrangThai(RoomEnum.DANGHOATDONG));
+        thongkephong.setTRONG(this.roomRepository.countByTrangThai(RoomEnum.TRONG));
+        thongkephong.setKHONGHOATDONG(this.roomRepository.countByTrangThai(RoomEnum.KHONGHOATDONG));
         return thongkephong;
     }
 

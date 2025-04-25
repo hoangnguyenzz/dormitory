@@ -15,6 +15,7 @@ import com.manage.quanlykytucxa.repository.RoomRepository;
 import com.manage.quanlykytucxa.repository.UserRepository;
 import com.manage.quanlykytucxa.service.UserService;
 import com.manage.quanlykytucxa.util.constant.GenderEnum;
+import com.manage.quanlykytucxa.util.constant.RoomEnum;
 
 @Service
 public class DatabaseInitializer implements CommandLineRunner {
@@ -112,21 +113,21 @@ public class DatabaseInitializer implements CommandLineRunner {
         if (countRooms == 0) {
             ArrayList<Room> rooms = new ArrayList<>();
 
-            rooms.add(new Room("201", 4, 1200000, true));
-            rooms.add(new Room("202", 4, 1200000, true));
-            rooms.add(new Room("203", 4, 1200000, true));
-            rooms.add(new Room("204", 4, 1200000, true));
-            rooms.add(new Room("205", 4, 1200000, true));
-            rooms.add(new Room("206", 4, 1200000, false));
-            rooms.add(new Room("207", 4, 1200000, true));
-            rooms.add(new Room("208", 4, 1200000, false));
-            rooms.add(new Room("209", 4, 1200000, true));
-            rooms.add(new Room("210", 4, 1200000, true));
-            rooms.add(new Room("211", 4, 1200000, false));
-            rooms.add(new Room("212", 4, 1200000, true));
-            rooms.add(new Room("301", 4, 1200000, true));
-            rooms.add(new Room("302", 4, 1200000, true));
-            rooms.add(new Room("303", 4, 1200000, true));
+            rooms.add(new Room("201", 4, 1200000, RoomEnum.TRONG));
+            rooms.add(new Room("202", 4, 1200000,  RoomEnum.TRONG));
+            rooms.add(new Room("203", 4, 1200000,  RoomEnum.TRONG));
+            rooms.add(new Room("204", 4, 1200000,  RoomEnum.TRONG));
+            rooms.add(new Room("205", 4, 1200000,  RoomEnum.TRONG));
+            rooms.add(new Room("206", 4, 1200000,  RoomEnum.TRONG));
+            rooms.add(new Room("207", 4, 1200000,  RoomEnum.TRONG));
+            rooms.add(new Room("208", 4, 1200000,  RoomEnum.TRONG));
+            rooms.add(new Room("209", 4, 1200000,  RoomEnum.TRONG));
+            rooms.add(new Room("210", 4, 1200000,  RoomEnum.TRONG));
+            rooms.add(new Room("211", 4, 1200000,  RoomEnum.TRONG));
+            rooms.add(new Room("212", 4, 1200000,  RoomEnum.TRONG));
+            rooms.add(new Room("301", 4, 1200000,  RoomEnum.TRONG));
+            rooms.add(new Room("302", 4, 1200000,  RoomEnum.TRONG));
+            rooms.add(new Room("303", 4, 1200000,  RoomEnum.TRONG));
 
             this.roomRepository.saveAll(rooms);
 

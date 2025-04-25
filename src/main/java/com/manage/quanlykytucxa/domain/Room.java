@@ -4,6 +4,7 @@ import java.time.Instant;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.manage.quanlykytucxa.util.constant.RoomEnum;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -35,7 +36,7 @@ public class Room {
 
     private int capacity;
     private double price;
-    private boolean isAvailable;
+    private RoomEnum trangThai;
 
     @JsonIgnore
     @OneToMany(mappedBy = "room")
@@ -43,11 +44,11 @@ public class Room {
     private Instant createAt;
     private Instant updateAt;
 
-    public Room(String name, int capacity, double price, boolean isAvailable) {
+    public Room(String name, int capacity, double price, RoomEnum trangThai) {
         this.name = name;
         this.capacity = capacity;
         this.price = price;
-        this.isAvailable = isAvailable;
+        this.trangThai = trangThai;
 
     }
 

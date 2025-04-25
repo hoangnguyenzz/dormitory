@@ -10,6 +10,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Thongkephong {
-    private int active;
-    private int inactive;
+    private int DANGHOATDONG;
+    private int TRONG;
+    private int KHONGHOATDONG;
 }
