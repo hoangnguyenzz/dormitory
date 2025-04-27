@@ -117,4 +117,10 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.OK).body(res);
     }
 
+    @GetMapping("clearroom/{id}")
+    public ResponseEntity<Void> clearRoom(@PathVariable("id") long id) {
+        this.userRepository.clearRoomByRoomId(id);
+        return ResponseEntity.noContent().build();
+    }
+
 }
