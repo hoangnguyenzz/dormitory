@@ -33,6 +33,8 @@ public class Hoadon {
     private int soNuoc;
     private double tienDien;
     private double tienNuoc;
+    private double tienPhong;
+    private double tienRac;
     private double tongTien;
     private InvoiceEnum trangThai;
     private Instant createAt;

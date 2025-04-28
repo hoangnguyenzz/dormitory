@@ -1,43 +1,86 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <title>Gửi Hóa Đơn qua Email</title>
     <meta charset="UTF-8">
 </head>
 
-<body style="font-family: Arial, sans-serif; padding: 20px; background-color: #f8f9fa;">
+<body style="font-family: Arial, sans-serif; background-color: #f8f9fa; padding: 20px;">
 
-    <h1 style="text-align: center; color: #333;">Thông tin hoá đơn</h1>
+    <div
+        style="max-width: 600px; margin: auto; background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
 
-    <p style="font-size: 16px; color: #555;">
-        <strong>Phòng:</strong> <span th:text="${data.room.name}" style="color: #2e3d49;"></span>
-    </p>
+        <h1 style="text-align: center; color: #333; margin-bottom: 30px;">Thông tin hoá đơn</h1>
 
-    <p style="font-size: 16px; color: #555;">
-        <strong>Số điện:</strong> <span th:text="${data.soDien}" style="color: #2e3d49;"></span>
-    </p>
+        <table style="width: 100%; border-collapse: collapse;">
+            <tr>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;"><strong>Phòng:</strong></td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee; text-align: right;">
+                    <span th:text="${data.room.name}" style="color: #2e3d49;"></span>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;"><strong>Số điện:</strong></td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee; text-align: right;">
+                    <span th:text="${data.soDien}" style="color: #2e3d49;"></span>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;"><strong>Số nước:</strong></td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee; text-align: right;">
+                    <span th:text="${data.soNuoc}" style="color: #2e3d49;"></span>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;"><strong>Tiền điện:</strong></td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee; text-align: right;">
+                    <span th:text="${#numbers.formatDecimal(data.tienDien, 0, 'COMMA', 0, 'POINT')}"
+                        style="color: #2e3d49; font-weight: bold;">0</span> VND
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;"><strong>Tiền nước:</strong></td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee; text-align: right;">
+                    <span th:text="${#numbers.formatDecimal(data.tienNuoc, 0, 'COMMA', 0, 'POINT')}"
+                        style="color: #2e3d49; font-weight: bold;">0</span> VND
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;"><strong>Tiền phòng:</strong></td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee; text-align: right;">
+                    <span th:text="${#numbers.formatDecimal(data.tienPhong, 0, 'COMMA', 0, 'POINT')}"
+                        style="color: #2e3d49; font-weight: bold;">0</span> VND
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;"><strong>Tiền rác:</strong></td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee; text-align: right;">
+                    <span th:text="${#numbers.formatDecimal(data.tienRac, 0, 'COMMA', 0, 'POINT')}"
+                        style="color: #2e3d49; font-weight: bold;">0</span> VND
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 15px; border-top: 2px solid #333;"><strong style="font-size: 18px;">Tổng
+                        tiền:</strong></td>
+                <td style="padding: 15px; border-top: 2px solid #333; text-align: right;">
+                    <span th:text="${#numbers.formatDecimal(data.tongTien, 0, 'COMMA', 0, 'POINT')}"
+                        style="color: #FF5722; font-weight: bold; font-size: 20px;">0</span> VND
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 10px;"><strong>Trạng thái:</strong></td>
+                <td style="padding: 10px; text-align: right;">
+                    <span th:text="${data.trangThai.name() == 'DADONG' ? 'Đã đóng' : 'Chưa đóng'}"
+                        style="color: #2e3d49; font-weight: bold;"></span>
 
-    <p style="font-size: 16px; color: #555;">
-        <strong>Số nước:</strong> <span th:text="${data.soNuoc}" style="color: #2e3d49;"></span>
-    </p>
+                </td>
+            </tr>
+        </table>
 
-    <p style="font-size: 16px; color: #555;">
-        <strong>Tiền điện:</strong> <span th:text="${#numbers.formatDecimal(data.tienDien, 0, 'COMMA', 0, 'POINT')}" style="color: #2e3d49; font-weight: bold;">0</span> VND
-    </p>
-    
-    <p style="font-size: 16px; color: #555;">
-        <strong>Tiền nước:</strong> <span th:text="${#numbers.formatDecimal(data.tienNuoc, 0, 'COMMA', 0, 'POINT')}" style="color: #2e3d49; font-weight: bold;">0</span> VND
-    </p>
-    
-    <p style="font-size: 16px; color: #555;">
-        <strong>Tổng tiền:</strong> <span th:text="${#numbers.formatDecimal(data.tongTien, 0, 'COMMA', 0, 'POINT')}" style="color: #2e3d49; font-weight: bold; font-size: 18px; color: #FF5722;">0</span> VND
-    </p>
-    
 
-    <p style="font-size: 16px; color: #555;">
-        <strong>Trạng thái:</strong> <span th:text="${data.trangThai == 'DADONG'} ? 'Đã đóng' : 'Chưa đóng'" style="color: #2e3d49;"></span>
-    </p>
-   
+    </div>
 
 </body>
+
 </html>
