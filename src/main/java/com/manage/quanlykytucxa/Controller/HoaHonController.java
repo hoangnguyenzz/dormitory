@@ -1,6 +1,10 @@
 package com.manage.quanlykytucxa.Controller;
 
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
@@ -14,14 +18,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.manage.quanlykytucxa.domain.Hoadon;
 import com.manage.quanlykytucxa.domain.SoDienNuoc;
 import com.manage.quanlykytucxa.domain.User;
+import com.manage.quanlykytucxa.domain.response.BillStatistics;
 import com.manage.quanlykytucxa.domain.response.RestResponse;
 import com.manage.quanlykytucxa.domain.response.ResultPagination;
 import com.manage.quanlykytucxa.repository.HoadonRepository;
 import com.manage.quanlykytucxa.service.HoaDonService;
+import com.manage.quanlykytucxa.util.constant.InvoiceEnum;
 import com.turkraft.springfilter.boot.Filter;
 
 @Controller
@@ -70,5 +77,24 @@ public ResponseEntity<?> updateTrangThai(@RequestBody Hoadon request) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Lỗi cập nhật trạng thái");
     }
 }
+
+
+ @GetMapping("/statistics")
+    public ResponseEntity<List<BillStatistics>> getBillStatistics(@RequestParam Long roomId, @RequestParam int year) {
+        List<Hoadon> hoadonList = this.hoadonRepository.findByRoomIdAndYear(roomId, year);
+
+        // Chuyển dữ liệu thành BillStatistics
+        List<BillStatistics> statistics = hoadonList.stream().map(hoadon -> {
+            int month = hoadon.getCreateAt()
+                  .atZone(ZoneId.systemDefault())
+                  .getMonthValue();
+
+            double tongTien = hoadon.getTongTien();
+            String trangThai = hoadon.getTrangThai() == InvoiceEnum.DADONG ? "1" : "0"; 
+            return new BillStatistics(month, tongTien, trangThai);
+        }).collect(Collectors.toList());
+
+        return ResponseEntity.ok(statistics);
+    }
 
 }
