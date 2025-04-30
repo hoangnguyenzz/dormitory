@@ -123,4 +123,10 @@ public class UserController {
         return ResponseEntity.noContent().build();
     }
 
+    @PostMapping("/changepassword")
+    public ResponseEntity<Void> changePassword(@RequestBody User user) {
+        this.userService.changePassword(user);
+        return ResponseEntity.noContent().build();
+    }
+
 }

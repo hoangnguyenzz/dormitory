@@ -107,6 +107,15 @@ public class UserService {
         return userRepository.save(user);
     }
 
+    public void changePassword(User user) {
+        User currentUser = this.userRepository.findById(user.getId())
+                .orElseThrow(() -> new RuntimeException("Không tìm thấy người này " + user.getId()));
+        if (user.getPassword() != null) {
+            currentUser.setPassword(passwordEncoder.encode(user.getPassword()));
+        }
+        this.userRepository.save(currentUser);
+    }
+
     // Delete method
     @Transactional
     public void deleteUser(Long id) {
