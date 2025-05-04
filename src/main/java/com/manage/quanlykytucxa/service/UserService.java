@@ -46,6 +46,9 @@ public class UserService {
         if (this.userRepository.existsByEmail(user.getEmail())) {
             throw new RuntimeException("Email đã tồn tại !");
         }
+        if (this.studentRepository.existsByMaSv(user.getStudent().getMaSv())) {
+            throw new RuntimeException("Mã sinh viên đã tồn tại !");
+        }
         if (user.getRole() == null) {
             user.setRole(this.roleRepository.findByName("USER"));
         }
