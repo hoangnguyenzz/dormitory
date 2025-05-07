@@ -10,7 +10,7 @@ public interface RoomRepository extends JpaRepository<Room, Long>, JpaSpecificat
 
     boolean existsByName(String name);
 
-   int countByTrangThai(RoomEnum trangThai);
+    int countByTrangThai(RoomEnum trangThai);
 
-
+    Room findByName(String name);
 }

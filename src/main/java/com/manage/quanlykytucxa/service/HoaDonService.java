@@ -49,6 +49,9 @@ public class HoaDonService {
                     hoadon.getTienDien() + hoadon.getTienNuoc() + hoadon.getTienPhong() + hoadon.getTienRac());
             hoadon.setTrangThai(InvoiceEnum.CHUADONG);
             hoadon.setRoom(soDn.getRoom());
+
+            // tạo data
+            // hoadon.setCreateAt(soDn.getCreateAt());
             return hoadonRepository.save(hoadon);
         }
         return null;

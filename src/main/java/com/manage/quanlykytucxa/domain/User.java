@@ -58,7 +58,8 @@ public class User {
     private Student student;
 
     public User(String name, String email, String password,
-            String phone, String avatar, GenderEnum gender, Role role, Student student) {
+            String phone, String avatar, GenderEnum gender, Role role, Student student, Room room) {
+        this.room = room;
         this.name = name;
         this.email = email;
         this.password = password;
