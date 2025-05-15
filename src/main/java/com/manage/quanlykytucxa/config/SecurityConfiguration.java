@@ -36,6 +36,8 @@ public class SecurityConfiguration {
             // "/api/v1/email/**",
             "/api/v1/rooms/**",
             "/api/v1/users/byroom/**",
+            "/api/v1/auth/random-code",
+            "/api/v1/auth/verify",
     };
 
     @Bean

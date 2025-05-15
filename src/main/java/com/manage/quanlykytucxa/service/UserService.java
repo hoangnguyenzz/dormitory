@@ -3,6 +3,7 @@ package com.manage.quanlykytucxa.service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -165,4 +166,9 @@ public class UserService {
         }
         return this.userRepository.save(currentUser);
     }
+
+    public String generateRandomCode() {
+        return UUID.randomUUID().toString().substring(0, 6).toUpperCase();
+    }
+
 }

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Xác thực Email</title>
+</head>
+
+<body>
+    <p>Mã xác thực của bạn là:</p>
+    <h2 th:text="${data}" style="color: blue; letter-spacing: 2px;"></h2>
+
+    <p><strong>Lưu ý:</strong> Mã xác thực có hiệu lực trong vòng <strong>5 phút</strong>.</p>
+
+    <p>Trân trọng,<br>Đội ngũ hỗ trợ</p>
+</body>
+
+</html>
