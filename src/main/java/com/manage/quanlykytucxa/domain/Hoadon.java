@@ -39,9 +39,10 @@ public class Hoadon {
     private InvoiceEnum trangThai;
     private Instant createAt;
 
-    @PrePersist
-    public void handleBeforeCreate() {
+    // tạo data
+    // @PrePersist
+    // public void handleBeforeCreate() {
 
-        this.createAt = Instant.now();
-    }
+    //     this.createAt = Instant.now();
+    // }
 }
