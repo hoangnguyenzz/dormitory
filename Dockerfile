@@ -16,7 +16,6 @@ EXPOSE 8080
 
 COPY --from=build /app/build/libs/quanlykytucxa-0.0.1-SNAPSHOT.jar app.jar
 
-# Giới hạn RAM để tránh crash Railway
-ENV JAVA_TOOL_OPTIONS="-Xmx256m -Xms128m"
+
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
