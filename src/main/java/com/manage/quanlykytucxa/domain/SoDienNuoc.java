@@ -32,9 +32,10 @@ public class SoDienNuoc {
     private int soNuocCuoi;
     private Instant createAt;
 
-    @PrePersist
-    public void handleBeforeCreate() {
+    // Tạo data
+    // @PrePersist
+    // public void handleBeforeCreate() {
 
-        this.createAt = Instant.now();
-    }
+    //     this.createAt = Instant.now();
+    // }
 }
