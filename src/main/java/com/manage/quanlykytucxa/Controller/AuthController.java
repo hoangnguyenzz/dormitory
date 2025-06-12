@@ -66,7 +66,8 @@ public class AuthController {
                 User currentUser = this.userService.handleGetUserByEmail(request.getEmail());
                 if (currentUser != null) {
                         ResLogin.UserResLoginDTO dto = new ResLogin.UserResLoginDTO(currentUser.getId(),
-                                        currentUser.getName(), currentUser.getEmail(), currentUser.getRole());
+                                        currentUser.getName(), currentUser.getEmail(),
+                                        currentUser.getStudent() != null ? "STUDENT" : "WORKER", currentUser.getRole());
 
                         res.setUser(dto);
                 }

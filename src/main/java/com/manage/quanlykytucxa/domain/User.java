@@ -39,6 +39,7 @@ public class User {
     private String password;
     private String phone;
     private String avatar;
+    private Instant ngaySinh;
     private GenderEnum gender;
     private Instant createAt;
     private Instant updateAt;
@@ -56,6 +57,9 @@ public class User {
     @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "sinhvien_id")
     private Student student;
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "nguoidilam_id")
+    private NguoiDiLam nguoidilam;
 
     public User(String name, String email, String password,
             String phone, String avatar, GenderEnum gender, Role role, Student student, Room room) {
@@ -68,6 +72,19 @@ public class User {
         this.gender = gender;
         this.role = role;
         this.student = student;
+    }
+
+    public User(String name, String email, String password,
+            String phone, String avatar, GenderEnum gender, Role role, NguoiDiLam nguoiDiLam, Room room) {
+        this.room = room;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.phone = phone;
+        this.avatar = avatar;
+        this.gender = gender;
+        this.role = role;
+        this.nguoidilam = nguoiDiLam;
     }
 
     @PrePersist
