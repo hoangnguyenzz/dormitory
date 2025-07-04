@@ -80,33 +80,33 @@ public class DatabaseInitializer implements CommandLineRunner {
                 if (countRooms == 0) {
                         ArrayList<Room> rooms = new ArrayList<>();
 
-                        rooms.add(new Room("201", 4, 1200000, DoiTuongEnum.STUDENT, RoomEnum.TRONG));
-                        rooms.add(new Room("202", 4, 1200000, DoiTuongEnum.STUDENT, RoomEnum.TRONG));
-                        rooms.add(new Room("203", 4, 1200000, DoiTuongEnum.STUDENT, RoomEnum.TRONG));
-                        rooms.add(new Room("204", 4, 1200000, DoiTuongEnum.STUDENT, RoomEnum.TRONG));
-                        rooms.add(new Room("205", 4, 1200000, DoiTuongEnum.STUDENT, RoomEnum.TRONG));
-                        rooms.add(new Room("206", 4, 1200000, DoiTuongEnum.STUDENT, RoomEnum.TRONG));
-                        rooms.add(new Room("207", 4, 1200000, DoiTuongEnum.STUDENT, RoomEnum.TRONG));
-                        rooms.add(new Room("208", 4, 1200000, DoiTuongEnum.STUDENT, RoomEnum.TRONG));
-                        rooms.add(new Room("209", 4, 1200000, DoiTuongEnum.STUDENT, RoomEnum.TRONG));
-                        rooms.add(new Room("210", 4, 1200000, DoiTuongEnum.STUDENT, RoomEnum.TRONG));
-                        rooms.add(new Room("211", 4, 1200000, DoiTuongEnum.STUDENT, RoomEnum.TRONG));
-                        rooms.add(new Room("212", 4, 1200000, DoiTuongEnum.STUDENT, RoomEnum.TRONG));
-                        rooms.add(new Room("301", 4, 1200000, DoiTuongEnum.STUDENT, RoomEnum.TRONG));
-                        rooms.add(new Room("302", 4, 1200000, DoiTuongEnum.STUDENT, RoomEnum.TRONG));
-                        rooms.add(new Room("303", 4, 1200000, DoiTuongEnum.STUDENT, RoomEnum.TRONG));
-                        rooms.add(new Room("401", 4, 1200000, DoiTuongEnum.WORKER, RoomEnum.TRONG));
-                        rooms.add(new Room("402", 4, 1200000, DoiTuongEnum.WORKER, RoomEnum.TRONG));
-                        rooms.add(new Room("403", 4, 1200000, DoiTuongEnum.WORKER, RoomEnum.TRONG));
-                        rooms.add(new Room("404", 4, 1200000, DoiTuongEnum.WORKER, RoomEnum.TRONG));
-                        rooms.add(new Room("405", 4, 1200000, DoiTuongEnum.WORKER, RoomEnum.TRONG));
-                        rooms.add(new Room("406", 4, 1200000, DoiTuongEnum.WORKER, RoomEnum.TRONG));
-                        rooms.add(new Room("407", 4, 1200000, DoiTuongEnum.WORKER, RoomEnum.TRONG));
-                        rooms.add(new Room("408", 4, 1200000, DoiTuongEnum.WORKER, RoomEnum.TRONG));
-                        rooms.add(new Room("409", 4, 1200000, DoiTuongEnum.WORKER, RoomEnum.TRONG));
-                        rooms.add(new Room("410", 4, 1200000, DoiTuongEnum.WORKER, RoomEnum.TRONG));
-                        rooms.add(new Room("411", 4, 1200000, DoiTuongEnum.WORKER, RoomEnum.TRONG));
-                        rooms.add(new Room("412", 4, 1200000, DoiTuongEnum.WORKER, RoomEnum.TRONG));
+                        rooms.add(new Room("K2-201", 4, 1200000, DoiTuongEnum.STUDENT, RoomEnum.TRONG));
+                        rooms.add(new Room("K2-202", 4, 1200000, DoiTuongEnum.STUDENT, RoomEnum.TRONG));
+                        rooms.add(new Room("K2-203", 4, 1200000, DoiTuongEnum.STUDENT, RoomEnum.TRONG));
+                        rooms.add(new Room("K2-204", 4, 1200000, DoiTuongEnum.STUDENT, RoomEnum.TRONG));
+                        rooms.add(new Room("K2-205", 4, 1200000, DoiTuongEnum.STUDENT, RoomEnum.TRONG));
+                        rooms.add(new Room("K2-206", 4, 1200000, DoiTuongEnum.STUDENT, RoomEnum.TRONG));
+                        rooms.add(new Room("K2-207", 4, 1200000, DoiTuongEnum.STUDENT, RoomEnum.TRONG));
+                        rooms.add(new Room("K2-208", 4, 1200000, DoiTuongEnum.STUDENT, RoomEnum.TRONG));
+                        rooms.add(new Room("K2-209", 4, 1200000, DoiTuongEnum.STUDENT, RoomEnum.TRONG));
+                        rooms.add(new Room("K2-210", 4, 1200000, DoiTuongEnum.STUDENT, RoomEnum.TRONG));
+                        rooms.add(new Room("K2-211", 4, 1200000, DoiTuongEnum.STUDENT, RoomEnum.TRONG));
+                        rooms.add(new Room("K2-212", 4, 1200000, DoiTuongEnum.STUDENT, RoomEnum.TRONG));
+                        rooms.add(new Room("K2-301", 4, 1200000, DoiTuongEnum.STUDENT, RoomEnum.TRONG));
+                        rooms.add(new Room("K2-302", 4, 1200000, DoiTuongEnum.STUDENT, RoomEnum.TRONG));
+                        rooms.add(new Room("K2-303", 4, 1200000, DoiTuongEnum.STUDENT, RoomEnum.TRONG));
+                        rooms.add(new Room("K1-401", 4, 1200000, DoiTuongEnum.WORKER, RoomEnum.TRONG));
+                        rooms.add(new Room("K1-402", 4, 1200000, DoiTuongEnum.WORKER, RoomEnum.TRONG));
+                        rooms.add(new Room("K1-403", 4, 1200000, DoiTuongEnum.WORKER, RoomEnum.TRONG));
+                        rooms.add(new Room("K1-404", 4, 1200000, DoiTuongEnum.WORKER, RoomEnum.TRONG));
+                        rooms.add(new Room("K1-405", 4, 1200000, DoiTuongEnum.WORKER, RoomEnum.TRONG));
+                        rooms.add(new Room("K1-406", 4, 1200000, DoiTuongEnum.WORKER, RoomEnum.TRONG));
+                        rooms.add(new Room("K1-407", 4, 1200000, DoiTuongEnum.WORKER, RoomEnum.TRONG));
+                        rooms.add(new Room("K1-408", 4, 1200000, DoiTuongEnum.WORKER, RoomEnum.TRONG));
+                        rooms.add(new Room("K1-409", 4, 1200000, DoiTuongEnum.WORKER, RoomEnum.TRONG));
+                        rooms.add(new Room("K1-410", 4, 1200000, DoiTuongEnum.WORKER, RoomEnum.TRONG));
+                        rooms.add(new Room("K1-411", 4, 1200000, DoiTuongEnum.WORKER, RoomEnum.TRONG));
+                        rooms.add(new Room("K1-412", 4, 1200000, DoiTuongEnum.WORKER, RoomEnum.TRONG));
 
                         this.roomRepository.saveAll(rooms);
 
@@ -123,180 +123,181 @@ public class DatabaseInitializer implements CommandLineRunner {
                                         "https://randomuser.me/api/portraits/men/11.jpg", GenderEnum.MALE,
                                         this.roleRepository.findByName("USER"),
                                         new Student("CD51CT1001", "CD51CT", "Công nghệ thông tin"),
-                                        this.roomRepository.findByName("201")));
+                                        this.roomRepository.findByName("K2-201")));
 
                         users.add(new User("Trần Thị Mai", "mai.tran@gmail.com", "123456", "0987654321",
                                         "https://randomuser.me/api/portraits/women/21.jpg", GenderEnum.FEMALE,
                                         this.roleRepository.findByName("USER"),
                                         new Student("CD51CT1002", "CD51CT", "Công nghệ thông tin"),
-                                        this.roomRepository.findByName("202")));
+                                        this.roomRepository.findByName("K2-202")));
 
                         users.add(new User("Lê Quốc Khánh", "khanh.le@gmail.com", "123456", "0909090909",
                                         "https://randomuser.me/api/portraits/men/31.jpg", GenderEnum.MALE,
                                         this.roleRepository.findByName("USER"),
                                         new Student("CD51CT1003", "CD51CT", "Công nghệ thông tin"),
-                                        this.roomRepository.findByName("201")));
+                                        this.roomRepository.findByName("K2-201")));
 
                         users.add(new User("Phạm Ngọc Bích", "bich.pham@gmail.com", "123456", "0933445566",
                                         "https://randomuser.me/api/portraits/women/41.jpg", GenderEnum.FEMALE,
                                         this.roleRepository.findByName("USER"),
                                         new Student("CD51CT1005", "CD51CT", "Công nghệ thông tin"),
-                                        this.roomRepository.findByName("202")));
+                                        this.roomRepository.findByName("K2-202")));
 
                         users.add(new User("Hoàng Minh Tú", "tu.hoang@gmail.com", "123456", "0977112233",
                                         "https://randomuser.me/api/portraits/men/51.jpg", GenderEnum.MALE,
                                         this.roleRepository.findByName("USER"),
                                         new Student("CD51CT1006", "CD51CT", "Công nghệ thông tin"),
-                                        this.roomRepository.findByName("201")));
+                                        this.roomRepository.findByName("K2-201")));
 
                         users.add(new User("Đặng Thị Thảo", "thao.dang@gmail.com", "123456", "0944556677",
                                         "https://randomuser.me/api/portraits/women/61.jpg", GenderEnum.FEMALE,
                                         this.roleRepository.findByName("USER"),
                                         new Student("CD51CT1007", "CD51CT", "Công nghệ thông tin"),
-                                        this.roomRepository.findByName("202")));
+                                        this.roomRepository.findByName("K2-202")));
 
                         users.add(new User("Võ Anh Duy", "duy.vo@gmail.com", "123456", "0966887799",
                                         "https://randomuser.me/api/portraits/men/71.jpg", GenderEnum.MALE,
                                         this.roleRepository.findByName("USER"),
                                         new Student("CD51CT1008", "CD51CT", "Công nghệ thông tin"),
-                                        this.roomRepository.findByName("201")));
+                                        this.roomRepository.findByName("K2-201")));
 
                         users.add(new User("Lê Thị Hồng", "hong.le@gmail.com", "123456", "0922334455",
                                         "https://randomuser.me/api/portraits/women/81.jpg", GenderEnum.FEMALE,
                                         this.roleRepository.findByName("USER"),
                                         new Student("CD51CT1009", "CD51CT", "Công nghệ thông tin"),
-                                        this.roomRepository.findByName("202")));
+                                        this.roomRepository.findByName("K2-202")));
 
                         users.add(new User("Bùi Văn Tài", "tai.bui@gmail.com", "123456", "0911998877",
                                         "https://randomuser.me/api/portraits/men/91.jpg", GenderEnum.MALE,
                                         this.roleRepository.findByName("USER"),
                                         new Student("CD51CT1010", "CD51CT", "Công nghệ thông tin"),
-                                        this.roomRepository.findByName("203")));
+                                        this.roomRepository.findByName("K2-203")));
 
                         users.add(new User("Ngô Thị Quỳnh", "quynh.ngo@gmail.com", "123456", "0955667788",
                                         "https://randomuser.me/api/portraits/women/99.jpg", GenderEnum.FEMALE,
                                         this.roleRepository.findByName("USER"),
                                         new Student("CD51CT1011", "CD51CT", "Công nghệ thông tin"),
-                                        this.roomRepository.findByName("204")));
+                                        this.roomRepository.findByName("K2-204")));
 
                         users.add(new User("Trần Minh Hoàng", "hoang.tran@gmail.com", "123456", "0911223344",
                                         "https://randomuser.me/api/portraits/men/11.jpg", GenderEnum.MALE,
                                         this.roleRepository.findByName("USER"),
                                         new Student("CD51CT1012", "CD51CT", "Công nghệ thông tin"),
-                                        this.roomRepository.findByName("203")));
+                                        this.roomRepository.findByName("K2-203")));
 
                         users.add(new User("Lê Thị Thanh", "thanh.le@gmail.com", "123456", "0933445566",
                                         "https://randomuser.me/api/portraits/women/22.jpg", GenderEnum.FEMALE,
                                         this.roleRepository.findByName("USER"),
                                         new Student("CD51CT1013", "CD51CT", "Công nghệ thông tin"),
-                                        this.roomRepository.findByName("205")));
+                                        this.roomRepository.findByName("K2-205")));
 
                         users.add(new User("Nguyễn Văn Hậu", "hau.nguyen@gmail.com", "123456", "0966889900",
                                         "https://randomuser.me/api/portraits/men/33.jpg", GenderEnum.MALE,
                                         this.roleRepository.findByName("USER"),
                                         new Student("CD51CT1014", "CD51CT", "Công nghệ thông tin"),
-                                        this.roomRepository.findByName("203")));
+                                        this.roomRepository.findByName("K2-203")));
 
                         users.add(new User("Phạm Thị Hồng", "hong.pham@gmail.com", "123456", "0944556677",
                                         "https://randomuser.me/api/portraits/women/44.jpg", GenderEnum.FEMALE,
                                         this.roleRepository.findByName("USER"),
                                         new Student("CD51CT1015", "CD51CT", "Công nghệ thông tin"),
-                                        this.roomRepository.findByName("303")));
+                                        this.roomRepository.findByName("K2-303")));
 
                         users.add(new User("Vũ Quang Dũng", "dung.vu@gmail.com", "123456", "0977332211",
                                         "https://randomuser.me/api/portraits/men/55.jpg", GenderEnum.MALE,
                                         this.roleRepository.findByName("USER"),
                                         new Student("CD51CT1016", "CD51CT", "Công nghệ thông tin"),
-                                        this.roomRepository.findByName("206")));
+                                        this.roomRepository.findByName("K2-206")));
 
                         users.add(new User("Đỗ Thị Mai", "mai.do@gmail.com", "123456", "0922113344",
                                         "https://randomuser.me/api/portraits/women/66.jpg", GenderEnum.FEMALE,
                                         this.roleRepository.findByName("USER"),
                                         new Student("CD51CT1017", "CD51CT", "Công nghệ thông tin"),
-                                        this.roomRepository.findByName("207")));
+                                        this.roomRepository.findByName("K2-207")));
 
                         users.add(new User("Lâm Hoàng Anh", "anh.lam@gmail.com", "123456", "0988776655",
                                         "https://randomuser.me/api/portraits/men/77.jpg", GenderEnum.MALE,
                                         this.roleRepository.findByName("USER"),
                                         new Student("CD51CT1018", "CD51CT", "Công nghệ thông tin"),
-                                        this.roomRepository.findByName("301")));
+                                        this.roomRepository.findByName("K2-301")));
 
                         users.add(new User("Trịnh Thị Kim", "kim.trinh@gmail.com", "123456", "0933557799",
                                         "https://randomuser.me/api/portraits/women/88.jpg", GenderEnum.FEMALE,
                                         this.roleRepository.findByName("USER"),
                                         new Student("CD51CT1019", "CD51CT", "Công nghệ thông tin"),
-                                        this.roomRepository.findByName("210")));
+                                        this.roomRepository.findByName("K2-210")));
 
                         users.add(new User("Bùi Minh Tuấn", "tuan.bui@gmail.com", "123456", "0900112233",
                                         "https://randomuser.me/api/portraits/men/99.jpg", GenderEnum.MALE,
                                         this.roleRepository.findByName("USER"),
                                         new Student("CD51CT1020", "CD51CT", "Công nghệ thông tin"),
-                                        this.roomRepository.findByName("208")));
+                                        this.roomRepository.findByName("K2-208")));
 
                         users.add(new User("Nguyễn Thị Thảo", "thao.nguyen@gmail.com", "123456", "0911998877",
                                         "https://randomuser.me/api/portraits/women/21.jpg", GenderEnum.FEMALE,
                                         this.roleRepository.findByName("USER"),
                                         new Student("CD51CT1021", "CD51CT", "Công nghệ thông tin"),
-                                        this.roomRepository.findByName("209")));
+                                        this.roomRepository.findByName("K2-209")));
+
                         users.add(new User("Nguyễn Thị Hương", "huong.nguyen@gmail.com", "123456", "0911000001",
                                         "https://randomuser.me/api/portraits/women/21.jpg", GenderEnum.FEMALE,
                                         this.roleRepository.findByName("USER"),
                                         new NguoiDiLam("Nhân viên ngân hàng", "Quận 1, TP.HCM"),
-                                        this.roomRepository.findByName("401")));
+                                        this.roomRepository.findByName("K1-401")));
 
                         users.add(new User("Trần Minh Hùng", "hung.tran@gmail.com", "123456", "0911000002",
                                         "https://randomuser.me/api/portraits/men/22.jpg", GenderEnum.MALE,
                                         this.roleRepository.findByName("USER"),
                                         new NguoiDiLam("Lập trình viên", "Cầu Giấy, Hà Nội"),
-                                        this.roomRepository.findByName("402")));
+                                        this.roomRepository.findByName("K1-402")));
 
                         users.add(new User("Lê Thị Thu Trang", "trang.le@gmail.com", "123456", "0911000003",
                                         "https://randomuser.me/api/portraits/women/23.jpg", GenderEnum.FEMALE,
                                         this.roleRepository.findByName("USER"),
                                         new NguoiDiLam("Giáo viên mầm non", "Thanh Xuân, Hà Nội"),
-                                        this.roomRepository.findByName("403")));
+                                        this.roomRepository.findByName("K1-403")));
 
                         users.add(new User("Phạm Quang Huy", "huy.pham@gmail.com", "123456", "0911000004",
                                         "https://randomuser.me/api/portraits/men/24.jpg", GenderEnum.MALE,
                                         this.roleRepository.findByName("USER"),
                                         new NguoiDiLam("Chuyên viên truyền thông", "Bình Thạnh, TP.HCM"),
-                                        this.roomRepository.findByName("404")));
+                                        this.roomRepository.findByName("K1-404")));
 
                         users.add(new User("Đặng Thị Mai", "mai.dang@gmail.com", "123456", "0911000005",
                                         "https://randomuser.me/api/portraits/women/25.jpg", GenderEnum.FEMALE,
                                         this.roleRepository.findByName("USER"),
                                         new NguoiDiLam("Nhân viên bán hàng", "Thủ Đức, TP.HCM"),
-                                        this.roomRepository.findByName("405")));
+                                        this.roomRepository.findByName("K1-405")));
 
                         users.add(new User("Võ Tuấn Anh", "anh.vo@gmail.com", "123456", "0911000006",
                                         "https://randomuser.me/api/portraits/men/26.jpg", GenderEnum.MALE,
                                         this.roleRepository.findByName("USER"),
                                         new NguoiDiLam("Kỹ thuật viên điện tử", "Tân Bình, TP.HCM"),
-                                        this.roomRepository.findByName("406")));
+                                        this.roomRepository.findByName("K1-406")));
 
                         users.add(new User("Ngô Thị Lan", "lan.ngo@gmail.com", "123456", "0911000007",
                                         "https://randomuser.me/api/portraits/women/27.jpg", GenderEnum.FEMALE,
                                         this.roleRepository.findByName("USER"),
                                         new NguoiDiLam("Nhân viên hành chính", "Hải Châu, Đà Nẵng"),
-                                        this.roomRepository.findByName("407")));
+                                        this.roomRepository.findByName("K1-407")));
 
                         users.add(new User("Huỳnh Thanh Tùng", "tung.huynh@gmail.com", "123456", "0911000008",
                                         "https://randomuser.me/api/portraits/men/28.jpg", GenderEnum.MALE,
                                         this.roleRepository.findByName("USER"),
                                         new NguoiDiLam("Chuyên viên pháp lý", "Ninh Kiều, Cần Thơ"),
-                                        this.roomRepository.findByName("408")));
+                                        this.roomRepository.findByName("K1-408")));
 
                         users.add(new User("Bùi Thị Kim Ngân", "ngan.bui@gmail.com", "123456", "0911000009",
                                         "https://randomuser.me/api/portraits/women/29.jpg", GenderEnum.FEMALE,
                                         this.roleRepository.findByName("USER"),
                                         new NguoiDiLam("Tư vấn viên tuyển sinh", "Nam Từ Liêm, Hà Nội"),
-                                        this.roomRepository.findByName("409")));
+                                        this.roomRepository.findByName("K1-409")));
 
                         users.add(new User("Tạ Văn Lâm", "lam.ta@gmail.com", "123456", "0911000010",
                                         "https://randomuser.me/api/portraits/men/30.jpg", GenderEnum.MALE,
                                         this.roleRepository.findByName("USER"),
                                         new NguoiDiLam("Bác sĩ đa khoa", "Phú Nhuận, TP.HCM"),
-                                        this.roomRepository.findByName("410")));
+                                        this.roomRepository.findByName("K1-410")));
 
                         for (User user : users) {
                                 this.userService.create(user);
@@ -306,9 +307,9 @@ public class DatabaseInitializer implements CommandLineRunner {
                 if (countSoDienNuoc == 0) {
                         ArrayList<SoDienNuoc> soDienNuocs = new ArrayList<>();
                         String[] roomNames = {
-                                        "201", "202", "203", "204", "205", "206", "207", "208", "209", "210", "211",
-                                        "212",
-                                        "301", "302", "303"
+                                        "K2-201", "K2-202", "K2-203", "K2-204", "K2-205", "K2-206", "K2-207", "K2-208",
+                                        "K2-209", "K2-210", "K2-211", "K2-212",
+                                        "K2-301", "K2-302", "K2-303"
                         };
 
                         for (String roomName : roomNames) {

@@ -40,9 +40,9 @@ public class Hoadon {
     private Instant createAt;
 
     // tạo data
-    // @PrePersist
-    // public void handleBeforeCreate() {
+    @PrePersist
+    public void handleBeforeCreate() {
 
-    //     this.createAt = Instant.now();
-    // }
+        this.createAt = Instant.now();
+    }
 }

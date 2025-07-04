@@ -51,7 +51,7 @@ public class HoaDonService {
             hoadon.setRoom(soDn.getRoom());
 
             // tạo data
-            hoadon.setCreateAt(soDn.getCreateAt());
+            // hoadon.setCreateAt(soDn.getCreateAt());
             return hoadonRepository.save(hoadon);
         }
         return null;

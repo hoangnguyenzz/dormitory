@@ -33,9 +33,9 @@ public class SoDienNuoc {
     private Instant createAt;
 
     // Tạo data
-    // @PrePersist
-    // public void handleBeforeCreate() {
+    @PrePersist
+    public void handleBeforeCreate() {
 
-    //     this.createAt = Instant.now();
-    // }
+        this.createAt = Instant.now();
+    }
 }
